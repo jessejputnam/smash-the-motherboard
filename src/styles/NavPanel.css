@@ -1,3 +1,9 @@
+.NavPanel {
+  width: 200px;
+  border-right: solid 1px gray;
+  padding: 10px;
+}
+
 .btn--nav-panel {
   background-color: transparent;
   border: none;
