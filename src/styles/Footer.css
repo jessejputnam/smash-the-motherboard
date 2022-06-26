@@ -1,0 +1,33 @@
+.Footer {
+  background: rgba(43, 43, 97, 0.758);
+  padding: 25px 25px 50px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.socials__list {
+  display: flex;
+  column-gap: 10px;
+}
+
+.socials__list > li {
+  transition: filter 0.8s;
+}
+
+@media (hover: hover) {
+  .socials__list > li:hover {
+    filter: hue-rotate(155deg);
+  }
+}
+
+.address {
+  color: rgb(205, 205, 205);
+}
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: rgba(131, 131, 131, 0.859);
+}

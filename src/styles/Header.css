@@ -1,0 +1,13 @@
+.Header {
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+
+  background-color: #f7f7ff;
+}
+
+.Header > div {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+}

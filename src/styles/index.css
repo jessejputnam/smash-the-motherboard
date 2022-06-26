@@ -8,6 +8,30 @@
 
 button {
   padding: 2px 3px;
+  font-size: 1.5rem;
+  border: none;
+}
+
+.btn--login {
+  border: none;
+  background-color: transparent;
+  color: rgb(147, 147, 147);
+}
+
+.btn--signup {
+  border-radius: 30px;
+  padding: 10px 20px;
+  background-color: #fe6601;
+  color: white;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.415);
+
+  transition: filter 0.8s;
+}
+
+@media (hover: hover) {
+  .btn--signup:hover {
+    filter: hue-rotate(90deg);
+  }
 }
 
 ul {

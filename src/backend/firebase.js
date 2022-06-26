@@ -5,11 +5,10 @@ import {
   GoogleAuthProvider,
   getAuth,
   signInWithPopup,
-  signInWIthEmailAndPassword,
+  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
-  signOut,
-  signInWithEmailAndPassword
+  signOut
 } from "firebase/auth";
 
 import {
@@ -27,7 +26,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 // ###############################################
-// ########### Authentication ####################
+//  AUTHENTICATION
 // ###############################################
 
 // Google Authentication

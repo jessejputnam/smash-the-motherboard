@@ -8,7 +8,7 @@ import UserPage from "./pages/UserPage";
 import "./styles/App.css";
 
 function App() {
-  let user = "test_user";
+  let user;
 
   return <div className='App'>{!user ? <LandingPage /> : <UserPage />}</div>;
 }

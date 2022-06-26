@@ -32,32 +32,6 @@ const PatronNavPanel = () => {
     </div>
   );
 };
-// const PatronNavPanel = () => {
-//   return (
-//     <div className='PatronNavPanel'>
-//       <div className='panel__nav'>
-//         <button type='button' className='btn--nav-panel'>
-//           Account
-//         </button>
-//       </div>
-//       <div className='panel__nav'>
-//         <button type='button' className='btn--nav-panel'>
-//           Search
-//         </button>
-//       </div>
-//       <div className='panel__nav'>
-//         <button type='button' className='btn--nav-panel'>
-//           Subs
-//         </button>
-//       </div>
-//       <div className='panel__nav'>
-//         <button type='button' className='btn--nav-panel'>
-//           Settings
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
 
 const NavPanel = (props) => {
   const userType = props.userType;
