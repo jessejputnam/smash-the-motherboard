@@ -1,7 +1,10 @@
+// Import React tools
+import { Link } from "react-router-dom";
+
 // Import CSS
 import "../styles/Header.css";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className='Header'>
       <div>
@@ -13,12 +16,11 @@ const Header = () => {
         ></input>
       </div>
       <div>
-        <button type='button' className='btn btn--login'>
-          Log In
-        </button>
-        <button type='button' className='btn btn--signup'>
-          Sign Up
-        </button>
+        <Link to='/login'>
+          <button type='button' className='btn btn--signup'>
+            Sign Up
+          </button>
+        </Link>
       </div>
     </div>
   );
