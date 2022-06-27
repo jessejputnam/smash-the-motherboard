@@ -1,6 +1,6 @@
 // Import Pages
 import LandingPage from "./pages/LandingPage";
-import UserPage from "./pages/UserPage";
+import UserApp from "./pages/UserApp";
 
 // Import Components
 
@@ -10,7 +10,7 @@ import "./styles/App.css";
 function App() {
   let user;
 
-  return <div className='App'>{!user ? <LandingPage /> : <UserPage />}</div>;
+  return <div className='App'>{!user ? <LandingPage /> : <UserApp />}</div>;
 }
 
 export default App;

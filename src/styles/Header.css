@@ -1,5 +1,5 @@
 .Header {
-  padding: 25px;
+  padding: 1.4rem;
   display: flex;
   justify-content: space-between;
 
@@ -10,4 +10,20 @@
   display: flex;
   align-items: center;
   column-gap: 25px;
+}
+
+.btn--login {
+  background-color: transparent;
+  border: none;
+  color: rgb(155, 155, 155);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.05rem;
+  padding: 0.5rem 1rem;
+}
+
+@media (hover: hover) {
+  .btn--login:hover {
+    color: #fe6601;
+  }
 }

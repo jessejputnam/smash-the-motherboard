@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className='Header'>
       <div>
-        <p>Browse Creators</p>
+        <button type='button'>Browse Creators</button>
         <input
           type='text'
           className='searchbar header__searchbar'

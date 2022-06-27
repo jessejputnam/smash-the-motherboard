@@ -3,9 +3,9 @@ import PatronHome from "./UserPages/PatronHome";
 import NavPanel from "../components/NavPanel";
 
 // Import CSS
-import "../styles/UserPage.css";
+import "../styles/UserApp.css";
 
-const UserPage = () => {
+const UserApp = () => {
   return (
     <div className='UserPage'>
       <NavPanel userType='patron' />
@@ -14,4 +14,4 @@ const UserPage = () => {
   );
 };
 
-export default UserPage;
+export default UserApp;

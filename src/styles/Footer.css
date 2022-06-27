@@ -6,6 +6,18 @@
   position: relative;
 }
 
+.socials {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.company-name {
+  font-size: 1.3rem;
+  color: #0496ff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.691);
+}
+
 .socials__list {
   display: flex;
   column-gap: 10px;
@@ -23,6 +35,7 @@
 
 .address {
   color: rgb(205, 205, 205);
+  align-self: flex-end;
 }
 
 .attribution {
@@ -30,4 +43,8 @@
   bottom: 0;
   right: 0;
   color: rgba(131, 131, 131, 0.859);
+}
+
+.attribution > a {
+  font-size: 0.7rem;
 }

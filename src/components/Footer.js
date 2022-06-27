@@ -9,6 +9,7 @@ const Footer = () => {
   return (
     <div className='Footer'>
       <div className='socials'>
+        <h3 className='company-name'>Smash The Motherboard</h3>
         <ul className='socials__list'>
           <li>
             <a href='https://www.facebook.com' target='blank'>
@@ -35,8 +36,8 @@ const Footer = () => {
 
       <div className='address'>
         <ul>
-          <li>360 West St</li>
-          <li>Hatfield, MA 01030</li>
+          <li>P.O. Box 20135</li>
+          <li>Sante Fe, NM 91093</li>
           <li>smashthemotherboard@email.com</li>
         </ul>
       </div>
