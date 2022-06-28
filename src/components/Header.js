@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 // Import components
-import Login from "./Login";
+import Login from "./user_auth/Login";
 
 // Import CSS
 import "../styles/Header.css";

@@ -5,11 +5,11 @@ import {
   auth,
   logInWithEmailAndPassword,
   signInWithGoogle
-} from "../backend/firebase";
+} from "../../backend/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 // Import CSS
-import "../styles/Login.css";
+import "../../styles/Login.css";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
