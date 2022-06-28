@@ -22,7 +22,14 @@ const Login = (props) => {
   };
 
   const closeModal = () => {
-    return props.closeModal(false);
+    return props.setModalVisible(false);
+  };
+
+  const handleOpenRegisterModal = () => {
+    return props.handleOpenRegisterModal({
+      loginModal: false,
+      registerModal: true
+    });
   };
 
   const LoginClassNames =
@@ -62,16 +69,19 @@ const Login = (props) => {
           className='btn login__btn login__google'
           onClick={signInWithGoogle}
         >
-          Login with Google
+          Sign in/up with Google
         </button>
         <div>
           <Link to='/reset'>Forgot Password?</Link>
         </div>
         <div>
-          Don't have an account?{" "}
-          <Link to='/register'>
-            <span className='register__btn'>Register</span>
-          </Link>{" "}
+          Don't have an account?
+          <button
+            onClick={handleOpenRegisterModal}
+            className='register-link__btn'
+          >
+            Register
+          </button>
           now.
         </div>
       </div>

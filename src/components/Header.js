@@ -3,15 +3,28 @@ import { useState } from "react";
 
 // Import components
 import Login from "./user_auth/Login";
+import Register from "./user_auth/Register";
 
 // Import CSS
 import "../styles/Header.css";
 
 const Header = (props) => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [loginModalVisible, setLoginModalVisible] = useState(false);
+  const [registerModalVisible, setRegisterModalVisible] = useState(false);
 
-  const openLoginModal = () => setModalVisible("login");
-  const handleCloseModal = (childData) => setModalVisible(childData);
+  const openLoginModal = () => {
+    setLoginModalVisible(true);
+  };
+  const openRegisterModal = (childData) => {
+    setLoginModalVisible(childData.loginModal);
+    setRegisterModalVisible(childData.registerModal);
+  };
+  const handleCloseLoginModal = (childData) => {
+    setLoginModalVisible(childData);
+  };
+  const handleCloseRegisterModal = (childData) => {
+    setRegisterModalVisible(childData);
+  };
 
   return (
     <div className='Header'>
@@ -32,7 +45,15 @@ const Header = (props) => {
           Sign Up
         </button>
       </div>
-      <Login closeModal={handleCloseModal} modalVisible={modalVisible} />
+      <Login
+        setModalVisible={handleCloseLoginModal}
+        modalVisible={loginModalVisible}
+        handleOpenRegisterModal={openRegisterModal}
+      />
+      <Register
+        setModalVisible={handleCloseRegisterModal}
+        modalVisible={registerModalVisible}
+      />
     </div>
   );
 };
