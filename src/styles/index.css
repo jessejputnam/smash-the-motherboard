@@ -39,6 +39,17 @@ button {
   }
 }
 
+.btn--close {
+  background: none;
+}
+
+@media (hover: hover) {
+  .btn--close:hover {
+    color: rgb(216, 165, 165);
+    font-weight: bold;
+  }
+}
+
 /* ################ Search Bars ################# */
 .searchbar {
   width: 400px;

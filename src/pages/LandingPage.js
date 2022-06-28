@@ -7,17 +7,10 @@ import Login from "../components/Login";
 import "../styles/LandingPage.css";
 
 const LandingPage = (props) => {
-  let modal = null;
-
-  const displaySigningModal = (childData) => {
-    console.log(childData);
-    if (childData === "login") modal = <Login />;
-  };
-
   return (
     <div className='LandingPage'>
-      <Header userModal={displaySigningModal} />
-      {modal}
+      <Header />
+      {/* {modal} */}
       <main className='main'>
         <div className='section'>
           <img

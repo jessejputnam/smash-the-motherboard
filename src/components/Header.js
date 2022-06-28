@@ -1,10 +1,18 @@
 // Import React tools
-import { Link } from "react-router-dom";
+import { useState } from "react";
+
+// Import components
+import Login from "./Login";
 
 // Import CSS
 import "../styles/Header.css";
 
 const Header = (props) => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openLoginModal = () => setModalVisible("login");
+  const handleCloseModal = (childData) => setModalVisible(childData);
+
   return (
     <div className='Header'>
       <div>
@@ -16,12 +24,15 @@ const Header = (props) => {
         ></input>
       </div>
       <div>
-        <Link to='/login'>
-          <button type='button' className='btn btn--signup'>
-            Sign Up
-          </button>
-        </Link>
+        <button
+          onClick={openLoginModal}
+          type='button'
+          className='btn btn--signup'
+        >
+          Sign Up
+        </button>
       </div>
+      <Login closeModal={handleCloseModal} modalVisible={modalVisible} />
     </div>
   );
 };
