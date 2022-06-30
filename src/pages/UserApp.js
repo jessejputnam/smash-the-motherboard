@@ -1,4 +1,4 @@
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// Import React tools
 
 // Import Components
 import PatronHome from "./UserPages/PatronHome";
@@ -6,6 +6,8 @@ import NavPanel from "../components/NavPanel";
 
 // Import CSS
 import "../styles/UserApp.css";
+
+// Use UID for useState (prop drill --> then check context)
 
 const UserApp = () => {
   return (

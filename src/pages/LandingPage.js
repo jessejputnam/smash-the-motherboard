@@ -5,11 +5,10 @@ import Footer from "../components/Footer";
 // Import CSS
 import "../styles/LandingPage.css";
 
-const LandingPage = (props) => {
+const LandingPage = () => {
   return (
     <div className='LandingPage'>
       <Header />
-      {/* {modal} */}
       <main className='main'>
         <div className='section'>
           <img

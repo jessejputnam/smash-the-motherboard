@@ -1,6 +1,6 @@
 // Import React tools
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   auth,
   logInWithEmailAndPassword,
@@ -29,6 +29,13 @@ const Login = (props) => {
     return props.handleOpenRegisterModal({
       loginModal: false,
       registerModal: true
+    });
+  };
+
+  const handleOpenResetModal = () => {
+    return props.handleOpenResetModal({
+      loginModal: false,
+      ResetModal: true
     });
   };
 
@@ -69,16 +76,21 @@ const Login = (props) => {
           className='btn login__btn login__google'
           onClick={signInWithGoogle}
         >
-          Sign in/up with Google
+          Sign in with Google
         </button>
         <div>
-          <Link to='/reset'>Forgot Password?</Link>
+          <button
+            onClick={handleOpenResetModal}
+            className='btn change-modal__btn'
+          >
+            Forgot Password?
+          </button>
         </div>
         <div>
           Don't have an account?
           <button
             onClick={handleOpenRegisterModal}
-            className='register-link__btn'
+            className='change-modal__btn'
           >
             Register
           </button>

@@ -1,4 +1,4 @@
-.Login {
+.Reset {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -13,53 +13,34 @@
   -webkit-backdrop-filter: blur(4px);
 }
 
-.login__container {
+.reset__container {
   position: relative;
   width: 500px;
+  min-height: 350px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
   background-color: #dcdcdcc8;
   padding: 60px 30px 30px;
   border-radius: 10px;
 }
 
-.btn--close {
-  position: absolute;
-  top: 10px;
-  right: 25px;
-}
-
-.login__input {
+.reset__input {
   padding: 10px;
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
-.login__btn {
+.reset__btn {
   padding: 10px;
   font-size: 18px;
   margin-bottom: 10px;
   border: none;
   color: white;
   background-color: black;
-  border-radius: 2rem;
 }
 
-.login__google {
-  background-color: #4285f4;
-}
-
-.login div {
+.reset div {
   margin-top: 7px;
-}
-
-.change-modal__btn {
-  color: #4285f4;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-.hidden {
-  display: none !important;
 }
