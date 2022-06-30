@@ -11,7 +11,7 @@ import {
 } from "../../../backend/firebase";
 
 // Import CSS
-// import "../../styles/Register.css";
+import styles from "./Register.module.css";
 
 const Register = (props) => {
   const [email, setEmail] = useState("");
@@ -36,7 +36,9 @@ const Register = (props) => {
   };
 
   const RegisterClassNames =
-    props.modalVisible === false ? "Register hidden" : "Register";
+    props.modalVisible === false
+      ? `${styles.Register} hidden`
+      : styles.Register;
 
   return (
     <div className={RegisterClassNames}>

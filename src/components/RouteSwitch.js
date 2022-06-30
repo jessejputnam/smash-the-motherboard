@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Import Components
 import LandingPage from "./pages/LandingPage/LandingPage";
-import UserPage from "./pages/UserApp/UserPage";
+import UserPage from "./pages/UserPage/UserPage";
 
 const RouteSwitch = () => {
   return (

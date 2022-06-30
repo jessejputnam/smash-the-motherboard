@@ -1,9 +1,9 @@
 // Import CSS
-// import "../../styles/PatronHome.css";
+import styles from "./PatronHome.module.css";
 
 const PatronHome = () => {
   return (
-    <div className='PatronHome'>
+    <div className={styles.PatronHome}>
       <h1>Home</h1>
       <ul>
         <li>Sub 1</li>

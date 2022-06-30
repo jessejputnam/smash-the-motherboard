@@ -11,7 +11,7 @@ import {
 } from "../../../backend/firebase";
 
 // Import CSS
-// import "../../styles/Login.css";
+import styles from "./Login.module.css";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -42,7 +42,7 @@ const Login = (props) => {
   };
 
   const LoginClassNames =
-    props.modalVisible === false ? "Login hidden" : "Login";
+    props.modalVisible === false ? `${styles.Login} hidden` : styles.Login;
 
   useEffect(() => {
     if (loading) {
@@ -53,29 +53,32 @@ const Login = (props) => {
 
   return (
     <div className={LoginClassNames}>
-      <div className='login__container'>
-        <button onClick={closeModal} className='btn btn--close'>
+      <div className={styles.login__container}>
+        <button
+          onClick={closeModal}
+          className={`${styles["btn--close"]} btn--close`}
+        >
           X
         </button>
         <input
           type='text'
-          className='login__input'
+          className={styles.login__input}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder='Email Address'
         ></input>
         <input
           type='password'
-          className='login__input'
+          className={styles.login__input}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder='Password'
         ></input>
-        <button className='btn login__btn' onClick={handleEmailLogin}>
+        <button className={styles.login__btn} onClick={handleEmailLogin}>
           Log in
         </button>
         <button
-          className='btn login__btn login__google'
+          className={`${styles.login__btn} ${styles.login__google}`}
           onClick={signInWithGoogle}
         >
           Sign in with Google
@@ -83,7 +86,7 @@ const Login = (props) => {
         <div>
           <button
             onClick={handleOpenResetModal}
-            className='btn change-modal__btn'
+            className={styles["change-modal__btn"]}
           >
             Forgot Password?
           </button>
@@ -92,7 +95,7 @@ const Login = (props) => {
           Don't have an account?
           <button
             onClick={handleOpenRegisterModal}
-            className='change-modal__btn'
+            className={styles["change-modal__btn"]}
           >
             Register
           </button>
