@@ -1,5 +1,5 @@
 // Import CSS
-import "../../styles/PatronHome.css";
+// import "../../styles/PatronHome.css";
 
 const PatronHome = () => {
   return (

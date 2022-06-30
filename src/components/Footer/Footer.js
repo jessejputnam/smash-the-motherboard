@@ -1,9 +1,11 @@
-import "../styles/Footer.css";
+// Import social icons
+import instagramIcon from "../../icons/instagram.png";
+import facebookIcon from "../../icons/facebook.png";
+import linkedinIcon from "../../icons/linkedin.png";
+import twitterIcon from "../../icons/twitter.png";
 
-import instagramIcon from "../icons/instagram.png";
-import facebookIcon from "../icons/facebook.png";
-import linkedinIcon from "../icons/linkedin.png";
-import twitterIcon from "../icons/twitter.png";
+// Import CSS
+// import "../styles/Footer.css";
 
 const Footer = () => {
   return (

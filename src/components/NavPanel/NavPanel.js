@@ -1,4 +1,5 @@
-import "../styles/NavPanel.css";
+// Import CSS
+// import "../styles/NavPanel.css";
 
 const ErrNavPanel = () => {
   return (

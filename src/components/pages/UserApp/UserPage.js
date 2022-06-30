@@ -1,15 +1,15 @@
 // Import React tools
 
 // Import Components
-import PatronHome from "./UserPages/PatronHome";
-import NavPanel from "../components/NavPanel";
+import PatronHome from "../UserPages/PatronHome/PatronHome";
+import NavPanel from "../../NavPanel/NavPanel";
 
 // Import CSS
-import "../styles/UserApp.css";
+// import "../styles/UserPage.css";
 
 // Use UID for useState (prop drill --> then check context)
 
-const UserApp = () => {
+const UserPage = () => {
   return (
     <div className='UserPage'>
       <NavPanel userType='patron' />
@@ -18,4 +18,4 @@ const UserApp = () => {
   );
 };
 
-export default UserApp;
+export default UserPage;

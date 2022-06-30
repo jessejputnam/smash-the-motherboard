@@ -1,16 +1,17 @@
 // Import Components
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../Header/Header";
+import Footer from "../../Footer/Footer";
 
 // Import CSS
-import "../styles/LandingPage.css";
+import styles from "./LandingPage.module.css";
 
 const LandingPage = () => {
   return (
+    // <div className='LandingPage'>
     <div className='LandingPage'>
       <Header />
-      <main className='main'>
-        <div className='section'>
+      <main>
+        <div className={styles.section}>
           <img
             src='https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png'
             alt='placeholder'

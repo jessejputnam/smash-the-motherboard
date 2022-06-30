@@ -2,12 +2,12 @@
 import { useState } from "react";
 
 // Import components
-import Login from "./user_auth/Login";
-import Register from "./user_auth/Register";
-import Reset from "./user_auth/Reset";
+import Login from "../userAuthModals/Login/Login";
+import Register from "../userAuthModals/Register/Register";
+import Reset from "../userAuthModals/Reset/Reset";
 
 // Import CSS
-import "../styles/Header.css";
+// import "../styles/Header.css";
 
 const Header = (props) => {
   const [loginModalVisible, setLoginModalVisible] = useState(false);

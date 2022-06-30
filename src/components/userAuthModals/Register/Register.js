@@ -1,13 +1,17 @@
+// Import React tools
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
+
+// Import Backend
 import {
   auth,
   registerWithEmailAndPassword,
   signInWithGoogle
-} from "../../backend/firebase";
+} from "../../../backend/firebase";
 
-import "../../styles/Register.css";
+// Import CSS
+// import "../../styles/Register.css";
 
 const Register = (props) => {
   const [email, setEmail] = useState("");

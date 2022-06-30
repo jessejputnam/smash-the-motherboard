@@ -1,13 +1,13 @@
 // Import React Tools
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
-// Import user_auth
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, sendPasswordReset } from "../../backend/firebase";
+
+// Import Backend
+import { auth, sendPasswordReset } from "../../../backend/firebase";
 
 // Import CSS
-import "../../styles/Reset.css";
+// import "../../styles/Reset.css";
 
 const Reset = (props) => {
   const [email, setEmail] = useState("");
