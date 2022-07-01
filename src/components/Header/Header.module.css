@@ -6,7 +6,7 @@
   background-color: #f7f7ff;
 }
 
-.Header > div {
+.header__search {
   display: flex;
   align-items: center;
   column-gap: 25px;

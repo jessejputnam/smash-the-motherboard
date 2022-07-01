@@ -19,10 +19,12 @@ const Login = (props) => {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
+  // Sign In Logic
   const handleEmailLogin = () => {
     logInWithEmailAndPassword(email, password);
   };
 
+  // Modal visual logic
   const closeModal = () => {
     return props.setModalVisible(false);
   };
@@ -41,14 +43,19 @@ const Login = (props) => {
     });
   };
 
+  // Classnames that allow modal to hide/reappear
   const LoginClassNames =
     props.modalVisible === false ? `${styles.Login} hidden` : styles.Login;
 
+  // Handle user state change
   useEffect(() => {
     if (loading) {
       return;
     }
-    if (user) navigate("/user");
+
+    if (user) {
+      navigate("/user");
+    }
   }, [user, loading, navigate]);
 
   return (

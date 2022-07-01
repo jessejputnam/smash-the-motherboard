@@ -21,20 +21,24 @@ const Register = (props) => {
 
   const navigate = useNavigate();
 
+  // Register email function
   const register = () => {
     if (!name) alert("Please enter a name");
     registerWithEmailAndPassword(name, email, password);
   };
 
+  // Modal visual logic
+  const closeModal = () => {
+    return props.setModalVisible(false);
+  };
+
+  // Handle user state change
   useEffect(() => {
     if (loading) return;
     if (user) navigate("/user");
   });
 
-  const closeModal = () => {
-    return props.setModalVisible(false);
-  };
-
+  // Classnames that allow modal to hide/reappear
   const RegisterClassNames =
     props.modalVisible === false
       ? `${styles.Register} hidden`
@@ -42,36 +46,39 @@ const Register = (props) => {
 
   return (
     <div className={RegisterClassNames}>
-      <div className='register__container'>
-        <button onClick={closeModal} className='btn btn--close'>
+      <div className={styles.register__container}>
+        <button
+          onClick={closeModal}
+          className={`${styles["btn--close"]} btn--close`}
+        >
           X
         </button>
         <input
           type='text'
-          className='register__input'
+          className={styles.register__input}
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder='Full Name'
         ></input>
         <input
           type='text'
-          className='register__input'
+          className={styles.register__input}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder='Email Address'
         ></input>
         <input
           type='password'
-          className='register__input'
+          className={styles.register__input}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder='Password'
         ></input>
-        <button className='register__btn' onClick={register}>
+        <button className={styles.register__btn} onClick={register}>
           Register
         </button>
         <button
-          className='register__btn register__google'
+          className={`${styles.register__btn} ${styles.register__google}`}
           onClick={signInWithGoogle}
         >
           Register with Google

@@ -4,7 +4,7 @@
   padding: 0.6rem;
 }
 
-/* .btn--nav-panel {
+.btn--nav-panel {
   background-color: transparent;
   border: none;
   color: rgb(155, 155, 155);
@@ -20,4 +20,9 @@
   .btn--nav-panel:hover {
     color: #0496ff;
   }
-} */
+}
+
+.btn--logout {
+  margin-top: 50px;
+  color: black;
+}

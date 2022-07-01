@@ -7,7 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, sendPasswordReset } from "../../../backend/firebase";
 
 // Import CSS
-// import "../../styles/Reset.css";
+import styles from "./Reset.module.css";
 
 const Reset = (props) => {
   const [email, setEmail] = useState("");
@@ -20,7 +20,7 @@ const Reset = (props) => {
   };
 
   const ResetClassNames =
-    props.modalVisible === false ? "Register hidden" : "Reset";
+    props.modalVisible === false ? `${styles.Reset} hidden` : styles.Reset;
 
   useEffect(() => {
     if (loading) return;
@@ -29,18 +29,21 @@ const Reset = (props) => {
 
   return (
     <div className={ResetClassNames}>
-      <div className='reset__container'>
-        <button onClick={closeModal} className='btn btn--close'>
+      <div className={styles.reset__container}>
+        <button
+          onClick={closeModal}
+          className={`${styles["btn--close"]} btn--close`}
+        >
           X
         </button>
         <input
           type='text'
-          className='reset__input'
+          className={styles.reset__input}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder='Email Address'
         ></input>
-        <button className='reset__btn' onClick={sendPasswordReset}>
+        <button className={styles.reset__btn} onClick={sendPasswordReset}>
           Send password reset email
         </button>
       </div>

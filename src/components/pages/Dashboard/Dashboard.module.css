@@ -1,5 +1,9 @@
-.UserPage {
+.Dashboard {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+}
+
+.panel__container {
+  border: solid 1px black;
 }

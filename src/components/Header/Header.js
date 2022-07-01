@@ -7,9 +7,9 @@ import Register from "../userAuthModals/Register/Register";
 import Reset from "../userAuthModals/Reset/Reset";
 
 // Import CSS
-// import "../styles/Header.css";
+import styles from "./Header.module.css";
 
-const Header = (props) => {
+const Header = () => {
   const [loginModalVisible, setLoginModalVisible] = useState(false);
   const [registerModalVisible, setRegisterModalVisible] = useState(false);
   const [resetModalVisible, setResetModalVisible] = useState(false);
@@ -39,12 +39,12 @@ const Header = (props) => {
   };
 
   return (
-    <div className='Header'>
-      <div>
+    <div className={styles.Header}>
+      <div className={styles.header__search}>
         <button type='button'>Browse Creators</button>
         <input
           type='text'
-          className='searchbar header__searchbar'
+          className={`searchbar ${styles.header__searchbar}`}
           placeholder='Search for artists...'
         ></input>
       </div>
@@ -52,7 +52,7 @@ const Header = (props) => {
         <button
           onClick={openLoginModal}
           type='button'
-          className='btn btn--signup'
+          className={"btn--signup"}
         >
           Sign Up
         </button>

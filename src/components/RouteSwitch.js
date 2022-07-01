@@ -3,14 +3,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Import Components
 import LandingPage from "./pages/LandingPage/LandingPage";
-import UserPage from "./pages/UserPage/UserPage";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 const RouteSwitch = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/user' element={<UserPage />} />
+        <Route path='/user' element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );

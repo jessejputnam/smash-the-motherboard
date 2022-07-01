@@ -1,35 +1,28 @@
+// Import Backend
+import { logout } from "../../backend/firebase";
+
 // Import CSS
-// import "../styles/NavPanel.css";
+import styles from "./NavPanel.module.css";
 
 const ErrNavPanel = () => {
   return (
-    <div className='ErrNavPanel'>
+    <div className={styles.ErrNavPanel}>
       <p>Error: improper user-type for NavPanel</p>
     </div>
   );
 };
 
 const CreatorNavPanel = () => {
-  return <div className='CreatorNavPanel'></div>;
+  return <div className={styles.CreatorNavPanel}></div>;
 };
 
 const PatronNavPanel = () => {
   return (
-    <div className='PatronNavPanel'>
-      <ul>
-        <li>
-          <a href='hello'>Account</a>
-        </li>
-        <li>
-          <a href='hello'>Home</a>
-        </li>
-        <li>
-          <a href='hello'>Search</a>
-        </li>
-        <li>
-          <a href='hello'>Settings</a>
-        </li>
-      </ul>
+    <div className={styles.PatronNavPanel}>
+      <button className={styles["btn--nav-panel"]}>Account</button>
+      <button className={styles["btn--nav-panel"]}>Home</button>
+      <button className={styles["btn--nav-panel"]}>Search</button>
+      <button className={styles["btn--nav-panel"]}>Settings</button>
     </div>
   );
 };
@@ -43,7 +36,17 @@ const NavPanel = (props) => {
   else if (userType === "creator") panel = <CreatorNavPanel />;
   else panel = <ErrNavPanel />;
 
-  return <div className='NavPanel'>{panel}</div>;
+  return (
+    <div className={styles.NavPanel}>
+      <div>{panel}</div>
+      <button
+        className={`${styles["btn--nav-panel"]} ${styles["btn--logout"]}`}
+        onClick={logout}
+      >
+        Sign Out
+      </button>
+    </div>
+  );
 };
 
 export default NavPanel;
