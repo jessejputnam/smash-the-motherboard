@@ -35,6 +35,8 @@ const Dashboard = () => {
     }
   }, [user]);
 
+  const test = () => console.log(user);
+
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/");
@@ -44,7 +46,7 @@ const Dashboard = () => {
   return (
     <div className={styles.Dashboard}>
       <NavPanel userType='patron' />
-      <PatronHome />
+      <PatronHome userName={name} userEmail={user?.email} />
     </div>
   );
 };
