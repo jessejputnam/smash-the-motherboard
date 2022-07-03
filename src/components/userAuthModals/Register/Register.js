@@ -35,7 +35,7 @@ const Register = (props) => {
   // Handle user state change
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/home");
+    if (user) navigate("/user/home");
   });
 
   // Classnames that allow modal to hide/reappear

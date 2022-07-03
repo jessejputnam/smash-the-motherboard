@@ -32,7 +32,7 @@ const Reset = (props) => {
 
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/home");
+    if (user) navigate("/user/home");
   }, [loading, user, navigate]);
 
   return (

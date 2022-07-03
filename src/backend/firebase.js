@@ -8,7 +8,8 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
-  signOut
+  signOut,
+  updateProfile
 } from "firebase/auth";
 
 import {
@@ -63,8 +64,15 @@ const logInWithEmailAndPassword = async (email, password) => {
 
 const registerWithEmailAndPassword = async (name, email, password) => {
   try {
+    let user;
     const res = await createUserWithEmailAndPassword(auth, email, password);
-    const user = res.user;
+    await updateProfile(auth.currentUser, { displayName: name })
+      .catch((err) => {
+        console.error(err);
+        alert(err.message);
+      })
+      .then((user = res.user));
+
     await addDoc(collection(db, "users"), {
       uid: user.uid,
       name,

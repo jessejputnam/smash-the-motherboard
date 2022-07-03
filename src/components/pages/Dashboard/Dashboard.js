@@ -1,8 +1,7 @@
 // Import React tools
 import React, { useState, useEffect, useCallback } from "react";
-import { useLocation } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 // Import Backend
 import { auth, db } from "../../../backend/firebase";
@@ -23,7 +22,6 @@ const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState("/home");
 
   const navigate = useNavigate();
-  const location = useLocation();
 
   const fetchUserName = useCallback(async () => {
     try {
@@ -43,19 +41,22 @@ const Dashboard = () => {
     fetchUserName();
   }, [user, loading, navigate, fetchUserName]);
 
-  useEffect(() => {
-    setCurrentPage(location.pathname);
-  }, [location]);
-
   const test = () => {
     console.log(user);
   };
 
   return (
     <div className={styles.Dashboard}>
-      <NavPanel currentPage={currentPage} userType='patron' />
-      <PatronHome userName={user?.displayName} userEmail={user?.email} />
       <button onClick={test}>test</button>
+      <NavPanel currentPage={currentPage} userType='patron' />
+      <Routes>
+        <Route
+          path='/home'
+          element={
+            <PatronHome userName={user?.displayName} userEmail={user?.email} />
+          }
+        ></Route>
+      </Routes>
     </div>
   );
 };

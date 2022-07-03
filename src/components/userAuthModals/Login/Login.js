@@ -54,7 +54,7 @@ const Login = (props) => {
     }
 
     if (user) {
-      navigate("/home");
+      navigate("/user/home");
     }
   }, [user, loading, navigate]);
 

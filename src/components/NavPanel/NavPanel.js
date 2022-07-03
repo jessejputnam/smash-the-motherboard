@@ -1,3 +1,6 @@
+// Import React tools
+import { useNavigate } from "react-router-dom";
+
 // Import Backend
 import { logout } from "../../backend/firebase";
 
@@ -17,7 +20,13 @@ const CreatorNavPanel = (props) => {
 };
 
 const PatronNavPanel = (props) => {
+  // const navigate = useNavigate();
+
   const currentPage = props.currentPage.slice(1);
+
+  const goToCreatorPage = () => {
+    // const
+  };
 
   const btnClass = styles["btn--nav-panel"];
   const btnCurrentClass = `${styles["btn--nav-panel"]} currentPage`;
@@ -25,9 +34,10 @@ const PatronNavPanel = (props) => {
   return (
     <div className={styles.PatronNavPanel}>
       <button
-        className={currentPage === "account" ? btnCurrentClass : btnClass}
+        onClick={goToCreatorPage}
+        className={currentPage === "creator" ? btnCurrentClass : btnClass}
       >
-        Account
+        Creator
       </button>
       <button className={currentPage === "home" ? btnCurrentClass : btnClass}>
         Home
