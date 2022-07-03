@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 // Import Backend
 import { auth, db } from "../../../backend/firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
-// import { logout } from "../../../backend/firebase";
 
 // Import Components
 import PatronHome from "../UserPages/PatronHome/PatronHome";
@@ -48,10 +47,15 @@ const Dashboard = () => {
     setCurrentPage(location.pathname);
   }, [location]);
 
+  const test = () => {
+    console.log(user);
+  };
+
   return (
     <div className={styles.Dashboard}>
       <NavPanel currentPage={currentPage} userType='patron' />
-      <PatronHome userName={name} userEmail={user?.email} />
+      <PatronHome userName={user?.displayName} userEmail={user?.email} />
+      <button onClick={test}>test</button>
     </div>
   );
 };
