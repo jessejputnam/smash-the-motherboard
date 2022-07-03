@@ -12,17 +12,34 @@ const ErrNavPanel = () => {
   );
 };
 
-const CreatorNavPanel = () => {
+const CreatorNavPanel = (props) => {
   return <div className={styles.CreatorNavPanel}></div>;
 };
 
-const PatronNavPanel = () => {
+const PatronNavPanel = (props) => {
+  const currentPage = props.currentPage.slice(1);
+
+  const btnClass = styles["btn--nav-panel"];
+  const btnCurrentClass = `${styles["btn--nav-panel"]} currentPage`;
+
   return (
     <div className={styles.PatronNavPanel}>
-      <button className={styles["btn--nav-panel"]}>Account</button>
-      <button className={styles["btn--nav-panel"]}>Home</button>
-      <button className={styles["btn--nav-panel"]}>Search</button>
-      <button className={styles["btn--nav-panel"]}>Settings</button>
+      <button
+        className={currentPage === "account" ? btnCurrentClass : btnClass}
+      >
+        Account
+      </button>
+      <button className={currentPage === "home" ? btnCurrentClass : btnClass}>
+        Home
+      </button>
+      <button className={currentPage === "search" ? btnCurrentClass : btnClass}>
+        Search
+      </button>
+      <button
+        className={currentPage === "settings" ? btnCurrentClass : btnClass}
+      >
+        Settings
+      </button>
     </div>
   );
 };
@@ -32,8 +49,10 @@ const NavPanel = (props) => {
 
   let panel;
 
-  if (userType === "patron") panel = <PatronNavPanel />;
-  else if (userType === "creator") panel = <CreatorNavPanel />;
+  if (userType === "patron")
+    panel = <PatronNavPanel currentPage={props.currentPage} />;
+  else if (userType === "creator")
+    panel = <CreatorNavPanel currentPage={props.currentPage} />;
   else panel = <ErrNavPanel />;
 
   return (

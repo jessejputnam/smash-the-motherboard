@@ -19,12 +19,20 @@ const Reset = (props) => {
     return props.setModalVisible(false);
   };
 
+  const handlePasswordReset = async () => {
+    const check = await sendPasswordReset(email);
+    if (check === "success") {
+      return props.setModalVisible(false);
+    }
+    console.log(check);
+  };
+
   const ResetClassNames =
     props.modalVisible === false ? `${styles.Reset} hidden` : styles.Reset;
 
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/user");
+    if (user) navigate("/home");
   }, [loading, user, navigate]);
 
   return (
@@ -43,7 +51,7 @@ const Reset = (props) => {
           onChange={(e) => setEmail(e.target.value)}
           placeholder='Email Address'
         ></input>
-        <button className={styles.reset__btn} onClick={sendPasswordReset}>
+        <button className={styles.reset__btn} onClick={handlePasswordReset}>
           Send password reset email
         </button>
       </div>

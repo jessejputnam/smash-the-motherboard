@@ -1,5 +1,6 @@
 // Import React tools
 import React, { useState, useEffect, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -20,8 +21,10 @@ import styles from "./Dashboard.module.css";
 const Dashboard = () => {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
+  const [currentPage, setCurrentPage] = useState("/home");
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const fetchUserName = useCallback(async () => {
     try {
@@ -35,17 +38,19 @@ const Dashboard = () => {
     }
   }, [user]);
 
-  const test = () => console.log(user);
-
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/");
     fetchUserName();
   }, [user, loading, navigate, fetchUserName]);
 
+  useEffect(() => {
+    setCurrentPage(location.pathname);
+  }, [location]);
+
   return (
     <div className={styles.Dashboard}>
-      <NavPanel userType='patron' />
+      <NavPanel currentPage={currentPage} userType='patron' />
       <PatronHome userName={name} userEmail={user?.email} />
     </div>
   );

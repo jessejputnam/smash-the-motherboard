@@ -7,7 +7,6 @@ import styles from "./LandingPage.module.css";
 
 const LandingPage = () => {
   return (
-    // <div className='LandingPage'>
     <div className='LandingPage'>
       <Header />
       <main>

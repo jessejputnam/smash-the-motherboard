@@ -5,14 +5,14 @@ import linkedinIcon from "../../icons/linkedin.png";
 import twitterIcon from "../../icons/twitter.png";
 
 // Import CSS
-// import "../styles/Footer.css";
+import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <div className='Footer'>
-      <div className='socials'>
-        <h3 className='company-name'>Smash The Motherboard</h3>
-        <ul className='socials__list'>
+    <div className={styles.Footer}>
+      <div className={styles.socials}>
+        <h3 className={styles["company-name"]}>Smash The Motherboard</h3>
+        <ul className={styles.socials__list}>
           <li>
             <a href='https://www.facebook.com' target='blank'>
               <img src={facebookIcon} alt='Facebook' />
@@ -36,14 +36,14 @@ const Footer = () => {
         </ul>
       </div>
 
-      <div className='address'>
+      <div className={styles.address}>
         <ul>
           <li>P.O. Box 20135</li>
           <li>Sante Fe, NM 91093</li>
           <li>smashthemotherboard@email.com</li>
         </ul>
       </div>
-      <div className='attribution'>
+      <div className={styles.attribution}>
         <a
           href='https://www.flaticon.com/free-icons/facebook'
           title='facebook icons'

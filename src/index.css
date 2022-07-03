@@ -49,6 +49,11 @@ button {
   }
 }
 
+.currentPage {
+  text-decoration: underline;
+  color: black !important;
+}
+
 /* ################ Search Bars ################# */
 .searchbar {
   width: 400px;

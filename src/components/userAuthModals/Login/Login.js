@@ -54,7 +54,7 @@ const Login = (props) => {
     }
 
     if (user) {
-      navigate("/user");
+      navigate("/home");
     }
   }, [user, loading, navigate]);
 
@@ -68,7 +68,7 @@ const Login = (props) => {
           X
         </button>
         <input
-          type='text'
+          type='email'
           className={styles.login__input}
           value={email}
           onChange={(e) => setEmail(e.target.value)}

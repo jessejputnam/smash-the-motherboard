@@ -10,7 +10,7 @@ const RouteSwitch = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/user' element={<Dashboard />} />
+        <Route path='/home' element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );
