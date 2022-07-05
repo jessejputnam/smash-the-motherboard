@@ -2,8 +2,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Import Components
-import LandingPage from "./pages/LandingPage/LandingPage";
-import Dashboard from "./pages/Dashboard/Dashboard";
+import LandingPage from "../pages/LandingPage/LandingPage";
+import Dashboard from "./Dashboard/Dashboard";
 
 const RouteSwitch = () => {
   return (

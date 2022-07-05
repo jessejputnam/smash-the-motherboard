@@ -7,6 +7,7 @@ import { logout } from "../../backend/firebase";
 // Import CSS
 import styles from "./NavPanel.module.css";
 
+// Error Nav Panel if not user or creator
 const ErrNavPanel = () => {
   return (
     <div className={styles.ErrNavPanel}>

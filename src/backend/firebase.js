@@ -66,6 +66,8 @@ const registerWithEmailAndPassword = async (name, email, password) => {
   try {
     let user;
     const res = await createUserWithEmailAndPassword(auth, email, password);
+
+    // Add displayName to user profile in database
     await updateProfile(auth.currentUser, { displayName: name })
       .catch((err) => {
         console.error(err);
@@ -73,6 +75,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       })
       .then((user = res.user));
 
+    // Add user to database
     await addDoc(collection(db, "users"), {
       uid: user.uid,
       name,
@@ -89,6 +92,8 @@ const sendPasswordReset = async (email) => {
   try {
     await sendPasswordResetEmail(auth, email);
     alert("Password reset link sent!");
+
+    // Return success to give check to close modal
     return "success";
   } catch (err) {
     console.error(err);

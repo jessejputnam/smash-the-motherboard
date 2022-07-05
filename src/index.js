@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 // import RouteSwitch from "./components/RouteSwitch";
 
 // Import Components
-import App from "./components/App";
+import App from "./app/App";
 
 // Import CSS
 import "./index.css";

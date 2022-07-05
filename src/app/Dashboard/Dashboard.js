@@ -4,12 +4,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 // Import Backend
-import { auth, db } from "../../../backend/firebase";
+import { auth, db } from "../../backend/firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 
 // Import Components
-import PatronHome from "../UserPages/PatronHome/PatronHome";
-import NavPanel from "../../NavPanel/NavPanel";
+import PatronHome from "../../pages/patron/PatronHome/PatronHome";
+import NavPanel from "../NavPanel/NavPanel";
 
 // Import CSS
 import styles from "./Dashboard.module.css";

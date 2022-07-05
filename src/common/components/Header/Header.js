@@ -2,9 +2,9 @@
 import { useState } from "react";
 
 // Import components
-import Login from "../userAuthModals/Login/Login";
-import Register from "../userAuthModals/Register/Register";
-import Reset from "../userAuthModals/Reset/Reset";
+import Login from "../../authentication/Login/Login";
+import Register from "../../authentication/Register/Register";
+import Reset from "../../authentication/Reset/Reset";
 
 // Import CSS
 import styles from "./Header.module.css";
@@ -14,7 +14,7 @@ const Header = () => {
   const [registerModalVisible, setRegisterModalVisible] = useState(false);
   const [resetModalVisible, setResetModalVisible] = useState(false);
 
-  // User_auth Modal Display Logic
+  // Display signin modal logic
   const openLoginModal = () => {
     setLoginModalVisible(true);
   };

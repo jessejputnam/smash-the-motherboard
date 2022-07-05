@@ -1,6 +1,6 @@
 // Import Components
-import Header from "../../Header/Header";
-import Footer from "../../Footer/Footer";
+import Header from "../../common/components/Header/Header";
+import Footer from "../../common/components/Footer/Footer";
 
 // Import CSS
 import styles from "./LandingPage.module.css";

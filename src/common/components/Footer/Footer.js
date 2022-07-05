@@ -1,8 +1,8 @@
 // Import social icons
-import instagramIcon from "../../icons/instagram.png";
-import facebookIcon from "../../icons/facebook.png";
-import linkedinIcon from "../../icons/linkedin.png";
-import twitterIcon from "../../icons/twitter.png";
+import instagramIcon from "../../../assets/icons/instagram.png";
+import facebookIcon from "../../../assets/icons/facebook.png";
+import linkedinIcon from "../../../assets/icons/linkedin.png";
+import twitterIcon from "../../../assets/icons/twitter.png";
 
 // Import CSS
 import styles from "./Footer.module.css";
