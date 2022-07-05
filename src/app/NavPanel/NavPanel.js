@@ -7,20 +7,7 @@ import { logout } from "../../backend/firebase";
 // Import CSS
 import styles from "./NavPanel.module.css";
 
-// Error Nav Panel if not user or creator
-const ErrNavPanel = () => {
-  return (
-    <div className={styles.ErrNavPanel}>
-      <p>Error: improper user-type for NavPanel</p>
-    </div>
-  );
-};
-
-const CreatorNavPanel = (props) => {
-  return <div className={styles.CreatorNavPanel}></div>;
-};
-
-const PatronNavPanel = (props) => {
+const NavPanel = (props) => {
   // const navigate = useNavigate();
 
   const currentPage = props.currentPage.slice(1);
@@ -33,7 +20,7 @@ const PatronNavPanel = (props) => {
   const btnCurrentClass = `${styles["btn--nav-panel"]} currentPage`;
 
   return (
-    <div className={styles.PatronNavPanel}>
+    <div className={styles.NavPanel}>
       <button
         onClick={goToCreatorPage}
         className={currentPage === "creator" ? btnCurrentClass : btnClass}
@@ -51,24 +38,6 @@ const PatronNavPanel = (props) => {
       >
         Settings
       </button>
-    </div>
-  );
-};
-
-const NavPanel = (props) => {
-  const userType = props.userType;
-
-  let panel;
-
-  if (userType === "patron")
-    panel = <PatronNavPanel currentPage={props.currentPage} />;
-  else if (userType === "creator")
-    panel = <CreatorNavPanel currentPage={props.currentPage} />;
-  else panel = <ErrNavPanel />;
-
-  return (
-    <div className={styles.NavPanel}>
-      <div>{panel}</div>
       <button
         className={`${styles["btn--nav-panel"]} ${styles["btn--logout"]}`}
         onClick={logout}
@@ -78,5 +47,29 @@ const NavPanel = (props) => {
     </div>
   );
 };
+
+// const NavPanel = (props) => {
+//   const userType = props.userType;
+
+//   let panel;
+
+//   if (userType === "patron")
+//     panel = <PatronNavPanel currentPage={props.currentPage} />;
+//   else if (userType === "creator")
+//     panel = <CreatorNavPanel currentPage={props.currentPage} />;
+//   else panel = <ErrNavPanel />;
+
+//   return (
+//     <div className={styles.NavPanel}>
+//       <div>{panel}</div>
+//       <button
+//         className={`${styles["btn--nav-panel"]} ${styles["btn--logout"]}`}
+//         onClick={logout}
+//       >
+//         Sign Out
+//       </button>
+//     </div>
+//   );
+// };
 
 export default NavPanel;

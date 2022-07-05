@@ -2,6 +2,7 @@
   width: 200px;
   border-right: solid 1px gray;
   padding: 0.6rem;
+  height: 100vh;
 }
 
 .btn--nav-panel {

@@ -27,7 +27,9 @@ const Dashboard = () => {
     try {
       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
       const doc = await getDocs(q);
+      console.log(doc);
       const data = doc.docs[0].data();
+
       setName(data.name);
     } catch (err) {
       console.error(err);
@@ -38,7 +40,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/");
-    fetchUserName();
+    setTimeout(() => fetchUserName(), 1000);
   }, [user, loading, navigate, fetchUserName]);
 
   const test = () => {
@@ -52,9 +54,7 @@ const Dashboard = () => {
       <Routes>
         <Route
           path='/home'
-          element={
-            <PatronHome userName={user?.displayName} userEmail={user?.email} />
-          }
+          element={<PatronHome userName={name} userEmail={user?.email} />}
         ></Route>
       </Routes>
     </div>
