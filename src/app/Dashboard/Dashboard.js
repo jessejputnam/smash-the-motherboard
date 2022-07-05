@@ -27,7 +27,6 @@ const Dashboard = () => {
     try {
       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
       const doc = await getDocs(q);
-      console.log(doc);
       const data = doc.docs[0].data();
 
       setName(data.name);
@@ -40,7 +39,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/");
-    setTimeout(() => fetchUserName(), 1000);
+    setTimeout(() => fetchUserName(), 500);
   }, [user, loading, navigate, fetchUserName]);
 
   const test = () => {
