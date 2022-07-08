@@ -8,12 +8,13 @@ import { logout } from "../../backend/firebase";
 import styles from "./NavPanel.module.css";
 
 const NavPanel = (props) => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const currentPage = props.currentPage.slice(1);
+  const currentPage = props.curPage;
 
-  const goToCreatorPage = () => {
-    // const
+  const goToPage = (e) => {
+    props.setCurPage(e.target.id);
+    navigate(e.target.id);
   };
 
   const btnClass = styles["btn--nav-panel"];
@@ -22,18 +23,29 @@ const NavPanel = (props) => {
   return (
     <div className={styles.NavPanel}>
       <button
-        onClick={goToCreatorPage}
+        id='creator'
+        onClick={goToPage}
         className={currentPage === "creator" ? btnCurrentClass : btnClass}
       >
         Creator
       </button>
-      <button className={currentPage === "home" ? btnCurrentClass : btnClass}>
+      <button
+        id='home'
+        onClick={goToPage}
+        className={currentPage === "home" ? btnCurrentClass : btnClass}
+      >
         Home
       </button>
-      <button className={currentPage === "search" ? btnCurrentClass : btnClass}>
+      <button
+        id='search'
+        onClick={goToPage}
+        className={currentPage === "search" ? btnCurrentClass : btnClass}
+      >
         Search
       </button>
       <button
+        id='settings'
+        onClick={goToPage}
         className={currentPage === "settings" ? btnCurrentClass : btnClass}
       >
         Settings
@@ -47,29 +59,5 @@ const NavPanel = (props) => {
     </div>
   );
 };
-
-// const NavPanel = (props) => {
-//   const userType = props.userType;
-
-//   let panel;
-
-//   if (userType === "patron")
-//     panel = <PatronNavPanel currentPage={props.currentPage} />;
-//   else if (userType === "creator")
-//     panel = <CreatorNavPanel currentPage={props.currentPage} />;
-//   else panel = <ErrNavPanel />;
-
-//   return (
-//     <div className={styles.NavPanel}>
-//       <div>{panel}</div>
-//       <button
-//         className={`${styles["btn--nav-panel"]} ${styles["btn--logout"]}`}
-//         onClick={logout}
-//       >
-//         Sign Out
-//       </button>
-//     </div>
-//   );
-// };
 
 export default NavPanel;
