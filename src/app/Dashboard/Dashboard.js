@@ -9,20 +9,21 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 
 // Import Components
 // import DashRouter from "./DashRouter";
-import PatronCreator from "../../pages/patron/PatronCreator/PatronCreator";
+import CreatorPage from "../../pages/creator/CreatorPage/CreatorPage";
 import PatronHome from "../../pages/patron/PatronHome/PatronHome";
 import NavPanel from "../NavPanel/NavPanel";
 
 // Import CSS
 import styles from "./Dashboard.module.css";
 
-// Use UID for useState (prop drill --> then check context)
+//TODO Use UID for useState (prop drill --> then check context)
 
 const Dashboard = () => {
   // State
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const [currentPage, setCurrentPage] = useState("home");
+  const [userData, setUserData] = useState("");
 
   // Functions
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ const Dashboard = () => {
     setCurrentPage(childData);
   };
 
+  //TODO Turn into fetchUserData and begin collecting necessary user info from db and not userAuth
   const fetchUserName = useCallback(async () => {
     try {
       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
@@ -46,9 +48,11 @@ const Dashboard = () => {
   // Listeners
   useEffect(() => {
     if (loading) return;
+    if (error) alert(error);
     if (!user) return navigate("/");
+    // To give time on register to let backend write name
     setTimeout(() => fetchUserName(), 500);
-  }, [user, loading, navigate, fetchUserName]);
+  }, [user, loading, error, navigate, fetchUserName]);
 
   const test = () => {
     console.log(user);
@@ -56,7 +60,9 @@ const Dashboard = () => {
 
   return (
     <div className={styles.Dashboard}>
-      <button onClick={test}>test</button>
+      <button className={styles.testBtn} onClick={test}>
+        test
+      </button>
       <NavPanel
         curPage={currentPage}
         setCurPage={setCurPage}
@@ -67,7 +73,7 @@ const Dashboard = () => {
           path='/home'
           element={<PatronHome userName={name} userEmail={user?.email} />}
         ></Route>
-        <Route path='creator' element={<PatronCreator />} />
+        <Route path='creator' element={<CreatorPage />} />
       </Routes>
     </div>
   );

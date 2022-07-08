@@ -54,7 +54,7 @@ const Header = () => {
           type='button'
           className={"btn--signup"}
         >
-          Sign Up
+          Sign In
         </button>
       </div>
       <Login

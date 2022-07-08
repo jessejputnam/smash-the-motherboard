@@ -7,16 +7,21 @@ import { logout } from "../../backend/firebase";
 // Import CSS
 import styles from "./NavPanel.module.css";
 
-const NavPanel = (props) => {
-  const navigate = useNavigate();
+//TODO Create sub-list under CREATOR for creator page -- analytics, posts, edit page
 
+const NavPanel = (props) => {
+  // Data
   const currentPage = props.curPage;
+
+  // Functions
+  const navigate = useNavigate();
 
   const goToPage = (e) => {
     props.setCurPage(e.target.id);
     navigate(e.target.id);
   };
 
+  // Classes for components
   const btnClass = styles["btn--nav-panel"];
   const btnCurrentClass = `${styles["btn--nav-panel"]} currentPage`;
 
