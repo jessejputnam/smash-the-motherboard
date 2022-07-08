@@ -8,7 +8,6 @@ import { auth, db } from "../../backend/firebase";
 import { query, collection, doc, getDocs, where } from "firebase/firestore";
 
 // Import Components
-// import DashRouter from "./DashRouter";
 import CreatorPage from "../../pages/creator/CreatorPage/CreatorPage";
 import PatronHome from "../../pages/patron/PatronHome/PatronHome";
 import NavPanel from "../NavPanel/NavPanel";
