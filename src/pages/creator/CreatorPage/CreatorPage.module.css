@@ -7,7 +7,8 @@
   border-bottom: solid 2px black;
   margin: 50px auto 0;
   display: block;
-  text-shadow: 0px 0px rgba(42, 42, 42, 0.838);
+  color: rgb(66, 66, 218);
+  text-shadow: 0.5px 0.5px rgba(42, 42, 42, 0.838);
 
   transition: box-shadow 1s, background-color 1s, color 0.7s;
 }
@@ -15,7 +16,6 @@
 @media (hover: hover) {
   .createBtn:hover {
     box-shadow: inset 0 1px 0 2px rgba(0, 0, 0, 0.836);
-    background-color: rgba(201, 45, 45, 0.768);
-    color: white;
+    color: rgb(124, 124, 215);
   }
 }
