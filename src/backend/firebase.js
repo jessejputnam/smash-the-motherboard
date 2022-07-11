@@ -1,3 +1,4 @@
+// IMPORTS
 import firebaseConfig from "./firebaseConfig";
 import { initializeApp } from "firebase/app";
 
@@ -9,7 +10,8 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   signOut,
-  updateProfile
+  updateProfile,
+  sendEmailVerification
 } from "firebase/auth";
 
 import {
@@ -18,7 +20,9 @@ import {
   getDocs,
   collection,
   where,
-  addDoc
+  addDoc,
+  doc,
+  updateDoc
 } from "firebase/firestore";
 
 // Initialize App and Services to use throughout
@@ -84,6 +88,13 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       email,
       creator: false
     });
+
+    await sendEmailVerification(auth.currentUser)
+      .catch((err) => {
+        console.error(err);
+        alert(err.message);
+      })
+      .then(alert("Email verification sent!"));
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -107,6 +118,23 @@ const logout = () => {
   signOut(auth);
 };
 
+// ###############################################
+//  Cloud Firestore Database
+// ###############################################
+
+// Get Unique User data from firestore Users db
+const getUserDbData = async (db, user) => {
+  const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+  // const docs = await getDocs(q);
+  return await getDocs(q);
+  // return docs.docs[0].data();
+};
+
+// Update specific fields in User Database
+const updateUserDbField = async (docRef, field, value) => {
+  await updateDoc(docRef, { [field]: value });
+};
+
 export {
   auth,
   db,
@@ -114,5 +142,7 @@ export {
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordReset,
-  logout
+  logout,
+  getUserDbData,
+  updateUserDbField
 };
