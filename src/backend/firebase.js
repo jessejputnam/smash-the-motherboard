@@ -21,7 +21,6 @@ import {
   collection,
   where,
   addDoc,
-  doc,
   updateDoc
 } from "firebase/firestore";
 
@@ -122,17 +121,40 @@ const logout = () => {
 //  Cloud Firestore Database
 // ###############################################
 
-// Get Unique User data from firestore Users db
-const getUserDbData = async (db, user) => {
+// Get Unique User data from firestore Users db as QuerySnapshot
+const getUserDbQuery = async (db, user) => {
   const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-  // const docs = await getDocs(q);
   return await getDocs(q);
-  // return docs.docs[0].data();
+};
+
+// Get docRef from QuertSnapshot
+const getDocRefFromQuery = async (db, user) => {
+  const querySnapshot = await getUserDbQuery(db, user);
+  return querySnapshot.docs[0].ref;
+};
+
+// Get readable object of user db info for user
+const getUserDbInfo = async (db, user) => {
+  const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+  const docs = await getDocs(q);
+  return docs.docs[0].data();
 };
 
 // Update specific fields in User Database
-const updateUserDbField = async (docRef, field, value) => {
+const updateDbFieldValue = async (docRef, field, value) => {
   await updateDoc(docRef, { [field]: value });
+};
+
+// Change firestore db field
+const findAndUpdateDbField = async (db, user, field, value) => {
+  try {
+    const querySnapshot = await getUserDbQuery(db, user);
+    const ref = querySnapshot.docs[0].ref;
+    updateDbFieldValue(ref, field, value);
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
 };
 
 export {
@@ -143,6 +165,8 @@ export {
   registerWithEmailAndPassword,
   sendPasswordReset,
   logout,
-  getUserDbData,
-  updateUserDbField
+  getUserDbQuery,
+  getUserDbInfo,
+  findAndUpdateDbField,
+  getDocRefFromQuery
 };

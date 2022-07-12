@@ -14,7 +14,7 @@ const CreatorPage = (props) => {
   //TODO Become creator adds creator to user db, change in dashboard state, rerender this page with new props
 
   const becomeCreator = () => {
-    props.addCreator("true");
+    props.becomeCreator({ field: "creator", value: true });
   };
 
   return (

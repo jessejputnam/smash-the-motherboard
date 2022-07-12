@@ -1,15 +1,16 @@
 // Import React tools
-import { doc } from "firebase/firestore";
 import React, { useState, useEffect, useCallback } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 // Import Backend
 import {
   auth,
   db,
-  getUserDbData,
-  updateUserDbField
+  getUserDbQuery,
+  // addCreatorField,
+  // getUserDbInfo,
+  findAndUpdateDbField
 } from "../../backend/firebase";
 // import { query, collection, doc, getDocs, where } from "firebase/firestore";
 
@@ -28,62 +29,55 @@ const Dashboard = () => {
   // State
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
-  const [currentPage, setCurrentPage] = useState("home");
-  // const [userData, setUserData] = useState("");
+  const [email, setEmail] = useState("");
+  const [userID, setUserID] = useState("");
+  const [creator, setCreator] = useState("");
+  const [currentPage, setCurrentPage] = useState("");
 
   // Functions
   const navigate = useNavigate();
+  const location = useLocation();
   const setCurPage = (childData) => {
     setCurrentPage(childData);
   };
 
-  const addCreator = async (childData) => {
-    try {
-      // const docRef = (doc(db, "users", ))
-      const querySnapshot = await getUserDbData(db, user);
-      const ref = querySnapshot.docs[0].ref;
-
-      if (querySnapshot.docs[0].data().creator === "false") {
-        updateUserDbField(ref, "creator", childData);
-      } else console.log(querySnapshot.docs[0].data());
-      // console.log("ref:", ref.docs[0].ref);
-      // console.log("doc:", doc(db, "users", "8vg3UUoLI1AECChdpfkd"));
-      // const data = ref.docs[0].data();
-
-      // if (!data.creator) {
-      // }
-
-      // console.log();
-    } catch (err) {
-      alert(err.message);
-      console.error(err);
-    }
+  const becomeCreator = (childData) => {
+    findAndUpdateDbField(db, user, childData.field, childData.value);
   };
 
   //TODO Turn into fetchUserData and begin collecting necessary user info from db and not userAuth
   // Fetch data
-  const fetchUserName = useCallback(async () => {
+  const fetchUserData = useCallback(async () => {
     try {
-      const ref = await getUserDbData(db, user);
+      const ref = await getUserDbQuery(db, user);
       const data = ref.docs[0].data();
 
       setName(data.name);
+      setEmail(data.email);
+      setUserID(data.uid);
+      setCreator(data.creator);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
     }
   }, [user]);
 
-  // Listeners
+  // Listener for user auth
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/");
     // To give time on register to let backend write name
-    setTimeout(() => fetchUserName(), 500);
-  }, [user, loading, error, navigate, fetchUserName]);
+    setTimeout(() => fetchUserData(), 500);
+  }, [user, loading, error, navigate, fetchUserData]);
 
-  const test = () => {
-    console.log(user);
+  // Listener for current page
+  useEffect(() => {
+    const navName = location.pathname.split("/user/")[1];
+    setCurrentPage(navName);
+  }, [location.pathname]);
+
+  const test = async () => {
+    console.log(location.pathname.split("/user/")[1]);
   };
 
   return (
@@ -103,7 +97,7 @@ const Dashboard = () => {
         ></Route>
         <Route
           path='creator'
-          element={<CreatorPage addCreator={addCreator} />}
+          element={<CreatorPage becomeCreator={becomeCreator} />}
         />
       </Routes>
     </div>
