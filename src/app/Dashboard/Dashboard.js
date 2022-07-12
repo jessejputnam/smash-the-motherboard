@@ -85,23 +85,30 @@ const Dashboard = () => {
       <button className={styles.testBtn} onClick={test}>
         test
       </button>
-      <NavPanel
-        curPage={currentPage}
-        setCurPage={setCurPage}
-        isCreator={isCreator}
-      />
-      <Routes>
-        <Route
-          path='/home'
-          element={<PatronHome userName={name} userEmail={user?.email} />}
-        ></Route>
-        <Route
-          path='creator'
-          element={
-            <CreatorPage isCreator={isCreator} becomeCreator={becomeCreator} />
-          }
+      <div className={styles.navContainer}>
+        <NavPanel
+          curPage={currentPage}
+          setCurPage={setCurPage}
+          isCreator={isCreator}
         />
-      </Routes>
+      </div>
+      <div className={styles.pageContainer}>
+        <Routes>
+          <Route
+            path='/home'
+            element={<PatronHome userName={name} userEmail={user?.email} />}
+          ></Route>
+          <Route
+            path='creator'
+            element={
+              <CreatorPage
+                isCreator={isCreator}
+                becomeCreator={becomeCreator}
+              />
+            }
+          />
+        </Routes>
+      </div>
     </div>
   );
 };

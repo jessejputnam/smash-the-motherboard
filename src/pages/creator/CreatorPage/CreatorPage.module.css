@@ -1,6 +1,6 @@
-.CreatorPage {
-  width: 75%;
-}
+/* .CreatorPage {
+  width: 99%;
+} */
 
 .createBtn {
   width: 200px;
@@ -18,4 +18,11 @@
     box-shadow: inset 0 1px 0 2px rgba(0, 0, 0, 0.836);
     color: rgb(124, 124, 215);
   }
+}
+
+.banner {
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+  border: solid 1px black;
 }

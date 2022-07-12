@@ -4,6 +4,10 @@
   flex-wrap: nowrap;
 }
 
+.pageContainer {
+  width: 100%;
+}
+
 .panel__container {
   border: solid 1px black;
 }
