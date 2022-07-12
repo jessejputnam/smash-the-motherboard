@@ -20,9 +20,11 @@ const CreatorPage = (props) => {
   return (
     <div className={styles.CreatorPage}>
       <h1>Creator Acount</h1>
-      <button onClick={becomeCreator} className={styles.createBtn}>
-        Become a Creator
-      </button>
+      {props.isCreator === false ? (
+        <button onClick={becomeCreator} className={styles.createBtn}>
+          Become a Creator
+        </button>
+      ) : null}
     </div>
   );
 };

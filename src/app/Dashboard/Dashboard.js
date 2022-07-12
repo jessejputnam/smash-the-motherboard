@@ -8,8 +8,7 @@ import {
   auth,
   db,
   getUserDbQuery,
-  // addCreatorField,
-  // getUserDbInfo,
+  getUserDbInfo,
   findAndUpdateDbField
 } from "../../backend/firebase";
 // import { query, collection, doc, getDocs, where } from "firebase/firestore";
@@ -21,7 +20,6 @@ import NavPanel from "../NavPanel/NavPanel";
 
 // Import CSS
 import styles from "./Dashboard.module.css";
-// import { getUserDbData } from "../../backend/interface";
 
 //TODO Use UID for useState (prop drill --> then check context)
 
@@ -31,7 +29,7 @@ const Dashboard = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [userID, setUserID] = useState("");
-  const [creator, setCreator] = useState("");
+  const [isCreator, setIsCreator] = useState("");
   const [currentPage, setCurrentPage] = useState("");
 
   // Functions
@@ -41,11 +39,6 @@ const Dashboard = () => {
     setCurrentPage(childData);
   };
 
-  const becomeCreator = (childData) => {
-    findAndUpdateDbField(db, user, childData.field, childData.value);
-  };
-
-  //TODO Turn into fetchUserData and begin collecting necessary user info from db and not userAuth
   // Fetch data
   const fetchUserData = useCallback(async () => {
     try {
@@ -55,17 +48,23 @@ const Dashboard = () => {
       setName(data.name);
       setEmail(data.email);
       setUserID(data.uid);
-      setCreator(data.creator);
+      setIsCreator(data.creator);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
     }
   }, [user]);
 
+  const becomeCreator = async (childData) => {
+    await findAndUpdateDbField(db, user, childData.field, childData.value);
+    fetchUserData();
+  };
+
   // Listener for user auth
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/");
+
     // To give time on register to let backend write name
     setTimeout(() => fetchUserData(), 500);
   }, [user, loading, error, navigate, fetchUserData]);
@@ -77,7 +76,8 @@ const Dashboard = () => {
   }, [location.pathname]);
 
   const test = async () => {
-    console.log(location.pathname.split("/user/")[1]);
+    console.log(await getUserDbInfo(db, user));
+    // console.log(name, email, userID, isCreator);
   };
 
   return (
@@ -88,7 +88,7 @@ const Dashboard = () => {
       <NavPanel
         curPage={currentPage}
         setCurPage={setCurPage}
-        userType='patron'
+        isCreator={isCreator}
       />
       <Routes>
         <Route
@@ -97,7 +97,9 @@ const Dashboard = () => {
         ></Route>
         <Route
           path='creator'
-          element={<CreatorPage becomeCreator={becomeCreator} />}
+          element={
+            <CreatorPage isCreator={isCreator} becomeCreator={becomeCreator} />
+          }
         />
       </Routes>
     </div>
