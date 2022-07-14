@@ -11,10 +11,9 @@ import {
   getUserDbInfo,
   findAndUpdateDbField
 } from "../../backend/firebase";
-// import { query, collection, doc, getDocs, where } from "firebase/firestore";
 
 // Import Components
-import CreatorPage from "../../pages/creator/CreatorPage/CreatorPage";
+import CreatorEditPage from "../../pages/creator/CreatorEditPage/CreatorEditPage";
 import PatronHome from "../../pages/patron/PatronHome/PatronHome";
 import NavPanel from "../NavPanel/NavPanel";
 
@@ -26,6 +25,7 @@ import styles from "./Dashboard.module.css";
 const Dashboard = () => {
   // State
   const [user, loading, error] = useAuthState(auth);
+  const [userData, setUserData] = useState({});
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [userID, setUserID] = useState("");
@@ -44,6 +44,13 @@ const Dashboard = () => {
     try {
       const ref = await getUserDbQuery(db, user);
       const data = ref.docs[0].data();
+
+      setUserData({
+        name: data.name,
+        uid: data.uid,
+        email: data.email,
+        creator: data.creator
+      });
 
       setName(data.name);
       setEmail(data.email);
@@ -101,7 +108,7 @@ const Dashboard = () => {
           <Route
             path='creator'
             element={
-              <CreatorPage
+              <CreatorEditPage
                 isCreator={isCreator}
                 becomeCreator={becomeCreator}
               />

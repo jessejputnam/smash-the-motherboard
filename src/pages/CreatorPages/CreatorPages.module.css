@@ -1,0 +1,36 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  padding: 2vw 5vw;
+}
+
+.mainWrapper {
+  max-width: 1000px;
+}
+
+.banner {
+  height: 20vw;
+  max-height: 500px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-bottom: solid 1px black;
+  position: relative;
+  margin-bottom: 10vw;
+}
+
+.profileContainer {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.399);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.profileContainer > img {
+  height: 15vw;
+  width: 15vw;
+  border-radius: 50%;
+}

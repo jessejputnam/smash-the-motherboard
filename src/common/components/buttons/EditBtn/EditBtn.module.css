@@ -1,0 +1,24 @@
+.EditBtn {
+  position: absolute;
+  left: 80%;
+  bottom: 5%;
+  height: 20%;
+  min-height: 25px;
+  padding: 0;
+  border-radius: 50%;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.464);
+  background-color: rgba(255, 255, 255, 0.632);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.EditBtn > img {
+  height: 90%;
+  margin: 2px;
+}
+
+@media (hover: hover) {
+  .EditBtn:hover {
+    filter: hue-rotate(90deg);
+  }
+}
