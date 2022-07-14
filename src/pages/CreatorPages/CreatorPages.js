@@ -50,7 +50,11 @@ const CreatorPages = () => {
 
           <div className={styles.tierListContainer}>
             <h2>Membership Tiers</h2>
-            <div></div>
+            <div className={styles.tiersContainer}>
+              <div className={styles.tierItem}></div>
+              <div className={styles.tierItem}></div>
+              <div className={styles.tierItem}></div>
+            </div>
           </div>
 
           <div className={styles.tierRewardsContainer}></div>

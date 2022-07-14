@@ -10,7 +10,8 @@ import styles from "./CreatorEditPage.module.css";
 // Import images
 
 const CreatorEditPage = (props) => {
-  const becomeCreator = () => {
+  const becomeCreator = (e) => {
+    e.preventDefault();
     props.becomeCreator({ field: "creator", value: true });
   };
 
@@ -20,13 +21,16 @@ const CreatorEditPage = (props) => {
 
   const creatorForm = () => {
     return (
-      <form className={styles.creatorForm}>
+      <form onSubmit={becomeCreator} className={styles.creatorForm}>
         <input type='text' placeholder='Project Title' />
         <br />
         <input type='text' placeholder='Project Genre' />
         <br />
         <textarea type='text' placeholder='Project Description' />
         <br />
+        <input className={styles.createBtn} value={"Become a Creator"}>
+          Become a Creator
+        </input>
       </form>
     );
   };

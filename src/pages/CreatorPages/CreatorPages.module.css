@@ -34,3 +34,22 @@
   width: 15vw;
   border-radius: 50%;
 }
+
+.tierListContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.tiersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+.tierItem {
+  border: solid 1px black;
+  /* width: clamp(30%); */
+  width: 30%;
+  height: 200px;
+}
