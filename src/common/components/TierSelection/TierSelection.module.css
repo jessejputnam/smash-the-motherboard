@@ -7,6 +7,14 @@
   width: 600px;
 }
 
+@media only screen and (min-width: 1200px) {
+  .TierSelection {
+    flex-direction: column;
+    row-gap: 15px;
+    height: 100%;
+  }
+}
+
 .tierDesc {
   border-left: solid 2px rgba(0, 0, 0, 0.249);
   border-right: solid 2px rgba(0, 0, 0, 0.249);

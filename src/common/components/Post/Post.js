@@ -7,7 +7,7 @@ const Post = () => {
       <div className={styles.postInfo}>
         <p>12:30 10/22/2021</p>
       </div>
-      <div className={styles.post}>
+      <div className={styles.postContent}>
         <p>
           At vero eos et accusamus et iusto odio dignissimos ducimus qui
           blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
