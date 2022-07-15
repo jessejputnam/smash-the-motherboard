@@ -24,6 +24,13 @@ button {
   background-color: inherit;
 }
 
+input[type="submit"] {
+  padding: 0.2rem 0.35rem;
+  font-size: 1.5rem;
+  border: none;
+  background-color: inherit;
+}
+
 .btn--signup {
   border-radius: 2rem;
   padding: 0.6rem 1.2rem;

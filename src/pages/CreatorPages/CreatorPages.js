@@ -1,5 +1,5 @@
 // Import React tools
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Import Components
 import EditBtn from "../../common/components/buttons/EditBtn/EditBtn";
@@ -14,14 +14,27 @@ import profilePlaceholder from "../../assets/images/userPlaceholder.png";
 import TierBox from "../../common/components/TierSelection/TierSelection";
 import Post from "../../common/components/Post/Post";
 
-const CreatorPages = () => {
+const CreatorPages = (props) => {
   // const [name, setName] = useState("");
   // const [title, setTitle] = useState("");
   // const [genre, setGenre] = useState("");
+  // const [desc, setDesc] = useState("");
+  // const [tiers, setTiers] = useState([]);
+  // const [posts, setPosts] = useState([]);
   // const [medium, setMedium] = useState("");
   // const [keywords, setKeywords] = useState("");
   const [banner, setBanner] = useState(bannerPlaceholder);
   const [profilePhoto, setProfilePhoto] = useState(profilePlaceholder);
+
+  // useEffect(() => {
+  //   setTitle(props.data.title);
+  //   setGenre(props.data.genre);
+  //   setDesc(props.data.desc);
+  //   setTiers(props.data.tiers);
+  //   setPosts(props.data.posts);
+  //   setBanner(props.data.bannerURL);
+  //   setProfilePhoto(props.data.profilePhotoURL);
+  // }, [props, title, genre, desc, tiers, posts, banner, profilePhoto]);
 
   return (
     <div className={styles.CreatorPages}>
