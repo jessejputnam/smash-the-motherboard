@@ -11,6 +11,10 @@ import styles from "./CreatorEditPage.module.css";
 // Import images
 
 const CreatorEditPage = (props) => {
+  const becomeCreator = (childData) => {
+    props.becomeCreator(childData);
+  };
+
   const test = async () => {
     // console.log(await bannerImg);
   };
@@ -18,7 +22,11 @@ const CreatorEditPage = (props) => {
   return (
     <div className={styles.CreatorEditPage}>
       <h1>Creator Edit Page</h1>
-      {!props.isCreator ? <BecomeCreatorForm /> : <CreatorPages />}
+      {!props.isCreator ? (
+        <BecomeCreatorForm becomeCreator={becomeCreator} />
+      ) : (
+        <CreatorPages />
+      )}
       <button onClick={test}>Test</button>
     </div>
   );
