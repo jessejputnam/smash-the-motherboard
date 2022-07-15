@@ -2,6 +2,7 @@
  * Table Of Contents
  *
  * # Imports
+ * # Utilities
  * # App & Service Initialization
  * # Authentication
  * # Cloud Firestore Database
@@ -13,6 +14,8 @@
 // ###############################################
 import firebaseConfig from "./firebaseConfig";
 import { initializeApp } from "firebase/app";
+
+import { uuidv4 } from "@firebase/util";
 
 import {
   GoogleAuthProvider,
@@ -37,6 +40,11 @@ import {
 } from "firebase/firestore";
 
 import { getStorage, ref } from "firebase/storage";
+
+// ###############################################
+//  # UTILITIES
+// ###############################################
+const uuid = uuidv4;
 
 // ###############################################
 //  # APP & SERVICE INITIALIZATION
@@ -193,5 +201,6 @@ export {
   getUserDbQuery,
   getUserDbInfo,
   findAndUpdateDbField,
-  getDocRefFromQuery
+  getDocRefFromQuery,
+  uuid
 };

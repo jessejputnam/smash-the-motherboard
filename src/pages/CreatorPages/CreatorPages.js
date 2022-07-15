@@ -11,30 +11,34 @@ import styles from "./CreatorPages.module.css";
 // Import images
 import bannerPlaceholder from "../../assets/images/banner-placeholder.png";
 import profilePlaceholder from "../../assets/images/userPlaceholder.png";
-import TierBox from "../../common/components/TierSelection/TierSelection";
+import TierSelection from "../../common/components/TierSelection/TierSelection";
 import Post from "../../common/components/Post/Post";
 
 const CreatorPages = (props) => {
   // const [name, setName] = useState("");
-  // const [title, setTitle] = useState("");
-  // const [genre, setGenre] = useState("");
-  // const [desc, setDesc] = useState("");
-  // const [tiers, setTiers] = useState([]);
+  const [title, setTitle] = useState("");
+  const [genre, setGenre] = useState("");
+  const [desc, setDesc] = useState("");
+  const [tier1, setTier1] = useState([]);
+  const [tier2, setTier2] = useState([]);
+  const [tier3, setTier3] = useState([]);
   // const [posts, setPosts] = useState([]);
   // const [medium, setMedium] = useState("");
   // const [keywords, setKeywords] = useState("");
   const [banner, setBanner] = useState(bannerPlaceholder);
   const [profilePhoto, setProfilePhoto] = useState(profilePlaceholder);
 
-  // useEffect(() => {
-  //   setTitle(props.data.title);
-  //   setGenre(props.data.genre);
-  //   setDesc(props.data.desc);
-  //   setTiers(props.data.tiers);
-  //   setPosts(props.data.posts);
-  //   setBanner(props.data.bannerURL);
-  //   setProfilePhoto(props.data.profilePhotoURL);
-  // }, [props, title, genre, desc, tiers, posts, banner, profilePhoto]);
+  useEffect(() => {
+    setTitle(props.userData.creator.title);
+    setGenre(props.userData.creator.genre);
+    setDesc(props.userData.creator.desc);
+    setTier1(props.userData.creator.tier1);
+    setTier2(props.userData.creator.tier2);
+    setTier3(props.userData.creator.tier3);
+    // setPosts(props.data.posts);
+    // setBanner(props.data.bannerURL);
+    // setProfilePhoto(props.data.profilePhotoURL);
+  }, [props, title, genre, desc, tier1, tier2, tier3]);
 
   return (
     <div className={styles.CreatorPages}>
@@ -51,26 +55,18 @@ const CreatorPages = (props) => {
 
       <div className={styles.mainContainer}>
         <div className={styles.mainWrapper}>
-          <h1>Project Title</h1>
-          <h2>Project Genre</h2>
+          <h1>{title}</h1>
+          <h2>{genre}</h2>
 
-          <p>
-            PROJECT DESCRIPTION: This is a description of the project and what
-            it is about. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore
-            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum.
-          </p>
+          <p>{desc}</p>
 
           <div className={styles.tierListContainer}>
             <h2>Membership Tiers</h2>
 
             <div className={styles.tiersContainer}>
-              <TierBox />
-              <TierBox />
-              <TierBox />
+              <TierSelection tierPrice='5' tierRewards={tier1} />
+              <TierSelection tierPrice='10' tierRewards={tier2} />
+              <TierSelection tierPrice='15' tierRewards={tier3} />
             </div>
           </div>
 

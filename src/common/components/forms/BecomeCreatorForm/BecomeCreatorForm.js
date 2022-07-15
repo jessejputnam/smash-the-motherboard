@@ -3,18 +3,25 @@ import styles from "./BecomeCreatorForm.module.css";
 const BecomeCreatorForm = (props) => {
   const becomeCreator = (e) => {
     e.preventDefault();
-    console.log(document.querySelector("#title").value);
+
     props.becomeCreator({
       field: "creator",
       value: {
         title: document.querySelector("#title").value,
         genre: document.querySelector("#genre").value,
         desc: document.querySelector("#desc").value,
-        tiers: [
-          document.querySelector("#tier1").value.split(";").trim(),
-          document.querySelector("#tier2").value.split(";").trim(),
-          document.querySelector("#tier3").value.split(";").trim()
-        ]
+        tier1: document
+          .querySelector("#tier1")
+          .value.split(";")
+          .map((reward) => reward.trim()),
+        tier2: document
+          .querySelector("#tier2")
+          .value.split(";")
+          .map((reward) => reward.trim()),
+        tier3: document
+          .querySelector("#tier3")
+          .value.split(";")
+          .map((reward) => reward.trim())
       }
     });
   };

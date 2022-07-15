@@ -16,16 +16,16 @@ const CreatorEditPage = (props) => {
   };
 
   const test = async () => {
-    // console.log(await bannerImg);
+    // console.log();
   };
 
   return (
     <div className={styles.CreatorEditPage}>
       <h1>Creator Edit Page</h1>
-      {!props.isCreator ? (
+      {!props.userData.creator ? (
         <BecomeCreatorForm becomeCreator={becomeCreator} />
       ) : (
-        <CreatorPages />
+        <CreatorPages userData={props.userData} />
       )}
       <button onClick={test}>Test</button>
     </div>

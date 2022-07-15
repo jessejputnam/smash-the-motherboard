@@ -26,10 +26,10 @@ const Dashboard = () => {
   // State
   const [user, loading, error] = useAuthState(auth);
   const [userData, setUserData] = useState({});
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [userID, setUserID] = useState("");
-  const [isCreator, setIsCreator] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [userID, setUserID] = useState("");
+  // const [isCreator, setIsCreator] = useState("");
   const [currentPage, setCurrentPage] = useState("");
 
   // Functions
@@ -52,10 +52,10 @@ const Dashboard = () => {
         creator: data.creator
       });
 
-      setName(data.name);
-      setEmail(data.email);
-      setUserID(data.uid);
-      setIsCreator(data.creator);
+      // setName(data.name);
+      // setEmail(data.email);
+      // setUserID(data.uid);
+      // setIsCreator(data.creator);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
@@ -93,23 +93,22 @@ const Dashboard = () => {
         test
       </button>
       <div className={styles.navContainer}>
-        <NavPanel
-          curPage={currentPage}
-          setCurPage={setCurPage}
-          isCreator={isCreator}
-        />
+        <NavPanel curPage={currentPage} setCurPage={setCurPage} />
       </div>
       <div className={styles.pageContainer}>
         <Routes>
           <Route
             path='/home'
-            element={<PatronHome userName={name} userEmail={user?.email} />}
+            element={
+              <PatronHome userName={userData.name} userEmail={userData.email} />
+            }
           ></Route>
           <Route
             path='creator'
             element={
               <CreatorEditPage
-                isCreator={isCreator}
+                userData={userData}
+                // isCreator={isCreator}
                 becomeCreator={becomeCreator}
               />
             }
