@@ -36,7 +36,7 @@ import {
   updateDoc
 } from "firebase/firestore";
 
-import { getStorage } from "firebase/storage";
+import { getStorage, ref } from "firebase/storage";
 
 // ###############################################
 //  # APP & SERVICE INITIALIZATION
@@ -178,6 +178,9 @@ const findAndUpdateDbField = async (db, user, field, value) => {
 // ###############################################
 //  # CLOUD STORAGE
 // ###############################################
+
+const storageRef = ref(storage);
+console.log(storageRef);
 
 export {
   auth,
