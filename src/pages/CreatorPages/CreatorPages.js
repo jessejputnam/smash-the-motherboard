@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 // Import Components
 import EditBtn from "../../common/components/buttons/EditBtn/EditBtn";
+import Footer from "../../common/components/Footer/Footer";
 
 // Import CSS
 import styles from "./CreatorPages.module.css";
@@ -10,6 +11,8 @@ import styles from "./CreatorPages.module.css";
 // Import images
 import bannerPlaceholder from "../../assets/images/banner-placeholder.png";
 import profilePlaceholder from "../../assets/images/userPlaceholder.png";
+import TierBox from "../../common/components/TierSelection/TierSelection";
+import Post from "../../common/components/Post/Post";
 
 const CreatorPages = () => {
   // const [name, setName] = useState("");
@@ -50,20 +53,29 @@ const CreatorPages = () => {
 
           <div className={styles.tierListContainer}>
             <h2>Membership Tiers</h2>
+
             <div className={styles.tiersContainer}>
-              <div className={styles.tierItem}></div>
-              <div className={styles.tierItem}></div>
-              <div className={styles.tierItem}></div>
+              <TierBox />
+              <TierBox />
+              <TierBox />
             </div>
           </div>
 
           <div className={styles.tierRewardsContainer}></div>
 
-          <div className={styles.postsContainer}></div>
+          <div className={styles.postsContainer}>
+            <h2>Posts</h2>
+            <div className={styles.postsWrapper}>
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+            </div>
+          </div>
         </div>
       </div>
 
-      <footer></footer>
+      <Footer />
     </div>
   );
 };
