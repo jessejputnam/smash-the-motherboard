@@ -6,6 +6,10 @@
   margin: 0 auto;
 }
 
+.BecomeCreatorForm p {
+  font-size: 0.8rem;
+}
+
 input[type="text"] {
   padding: 10px;
 }

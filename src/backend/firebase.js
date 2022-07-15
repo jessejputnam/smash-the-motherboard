@@ -1,4 +1,16 @@
-// IMPORTS
+/**
+ * Table Of Contents
+ *
+ * # Imports
+ * # App & Service Initialization
+ * # Authentication
+ * # Cloud Firestore Database
+ * # Cloud Storage
+ */
+
+// ###############################################
+//  # IMPORTS
+// ###############################################
 import firebaseConfig from "./firebaseConfig";
 import { initializeApp } from "firebase/app";
 
@@ -24,13 +36,19 @@ import {
   updateDoc
 } from "firebase/firestore";
 
+import { getStorage } from "firebase/storage";
+
+// ###############################################
+//  # APP & SERVICE INITIALIZATION
+// ###############################################
 // Initialize App and Services to use throughout
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 // ###############################################
-//  AUTHENTICATION
+//  # AUTHENTICATION
 // ###############################################
 
 // Google Authentication
@@ -118,7 +136,7 @@ const logout = () => {
 };
 
 // ###############################################
-//  Cloud Firestore Database
+//  # CLOUD FIRESTORE DATABASE
 // ###############################################
 
 // Get Unique User data from firestore Users db as QuerySnapshot
@@ -156,6 +174,10 @@ const findAndUpdateDbField = async (db, user, field, value) => {
     alert(err.message);
   }
 };
+
+// ###############################################
+//  # CLOUD STORAGE
+// ###############################################
 
 export {
   auth,
