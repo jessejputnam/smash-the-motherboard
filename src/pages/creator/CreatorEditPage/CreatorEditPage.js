@@ -1,9 +1,6 @@
-// Import React tools
-import React, { useState } from "react";
-
 // Import Components
 import BecomeCreatorForm from "../../../common/components/forms/BecomeCreatorForm/BecomeCreatorForm";
-import CreatorPages from "../../CreatorPages/CreatorPages";
+import CreatorPages from "./CreatorPage/CreatorPage";
 
 // Import CSS
 import styles from "./CreatorEditPage.module.css";

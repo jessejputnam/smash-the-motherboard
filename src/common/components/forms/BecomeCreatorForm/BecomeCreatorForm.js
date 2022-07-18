@@ -1,3 +1,4 @@
+// Import CSS
 import styles from "./BecomeCreatorForm.module.css";
 
 const BecomeCreatorForm = (props) => {
@@ -8,29 +9,53 @@ const BecomeCreatorForm = (props) => {
       field: "creator",
       value: {
         title: document.querySelector("#title").value,
-        genre: document.querySelector("#genre").value,
+        genre: document.querySelector("#genre").value.toUpperCase(),
         desc: document.querySelector("#desc").value,
         tier1: document
           .querySelector("#tier1")
           .value.split(";")
-          .map((reward) => reward.trim()),
+          .map((reward) => reward.trim())
+          .filter((el) => el !== ""),
         tier2: document
           .querySelector("#tier2")
           .value.split(";")
-          .map((reward) => reward.trim()),
+          .map((reward) => reward.trim())
+          .filter((el) => el !== ""),
         tier3: document
           .querySelector("#tier3")
           .value.split(";")
           .map((reward) => reward.trim())
+          .filter((el) => el !== "")
       }
     });
+  };
+
+  const selectElClass = (e) => {
+    e.target.classList = [];
   };
 
   return (
     <form onSubmit={becomeCreator} className={styles.BecomeCreatorForm}>
       <h3>Project Information</h3>
       <input id='title' type='text' placeholder='Project Title' required />
-      <input id='genre' type='text' placeholder='Project Genre' required />
+
+      {/* <input id='genre' type='text' placeholder='Project Genre' required /> */}
+      <select
+        onChange={selectElClass}
+        className={styles.placeholder}
+        name='genre'
+        id='genre'
+        defaultValue={"default"}
+        required
+      >
+        <option value={"default"} disabled hidden>
+          Genre
+        </option>
+        <option value='music'>Music</option>
+        <option value='podcast'>Podcast</option>
+        <option value='film'>Film</option>
+        <option value='writing'>Writing</option>
+      </select>
       <textarea id='desc' type='text' placeholder='Project Description' />
 
       <hr />

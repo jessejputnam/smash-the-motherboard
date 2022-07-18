@@ -61,16 +61,6 @@ input[type="submit"] {
   color: black !important;
 }
 
-/* ################ Search Bars ################# */
-.searchbar {
-  width: 400px;
-  font-size: 1.2rem;
-  padding: 0.7rem 1.4rem;
-  border-radius: 2rem;
-  border: none;
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.379);
-}
-
 .hidden {
   display: none;
 }

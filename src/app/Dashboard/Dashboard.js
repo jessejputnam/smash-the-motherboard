@@ -15,6 +15,7 @@ import {
 // Import Components
 import CreatorEditPage from "../../pages/creator/CreatorEditPage/CreatorEditPage";
 import PatronHome from "../../pages/patron/PatronHome/PatronHome";
+import PatronSearch from "../../pages/patron/PatronSearch/PatronSearch";
 import NavPanel from "../NavPanel/NavPanel";
 
 // Import CSS
@@ -102,7 +103,8 @@ const Dashboard = () => {
             element={
               <PatronHome userName={userData.name} userEmail={userData.email} />
             }
-          ></Route>
+          />
+
           <Route
             path='creator'
             element={
@@ -113,6 +115,8 @@ const Dashboard = () => {
               />
             }
           />
+
+          <Route path='search' element={<PatronSearch />} />
         </Routes>
       </div>
     </div>

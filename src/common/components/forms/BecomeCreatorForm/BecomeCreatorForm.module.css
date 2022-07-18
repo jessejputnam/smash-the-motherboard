@@ -10,8 +10,13 @@
   font-size: 0.8rem;
 }
 
-input[type="text"] {
+input[type="text"],
+select {
   padding: 10px;
+}
+
+.placeholder {
+  color: gray;
 }
 
 textarea {

@@ -2,6 +2,7 @@
 import { useState } from "react";
 
 // Import components
+import SearchBar from "../SearchBar/SearchBar";
 import Login from "../../authentication/Login/Login";
 import Register from "../../authentication/Register/Register";
 import Reset from "../../authentication/Reset/Reset";
@@ -42,11 +43,7 @@ const Header = () => {
     <div className={styles.Header}>
       <div className={styles.header__search}>
         <button type='button'>Browse Creators</button>
-        <input
-          type='text'
-          className={`searchbar ${styles.header__searchbar}`}
-          placeholder='Search for artists...'
-        ></input>
+        <SearchBar />
       </div>
       <div>
         <button

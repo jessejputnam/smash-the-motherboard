@@ -2,17 +2,17 @@
 import React, { useEffect, useState } from "react";
 
 // Import Components
-import EditBtn from "../../common/components/buttons/EditBtn/EditBtn";
-import Footer from "../../common/components/Footer/Footer";
+import EditBtn from "../../../../common/components/buttons/EditBtn/EditBtn";
+import Footer from "../../../../common/components/Footer/Footer";
 
 // Import CSS
-import styles from "./CreatorPages.module.css";
+import styles from "./CreatorPage.module.css";
 
 // Import images
-import bannerPlaceholder from "../../assets/images/banner-placeholder.png";
-import profilePlaceholder from "../../assets/images/userPlaceholder.png";
-import TierSelection from "../../common/components/TierSelection/TierSelection";
-import Post from "../../common/components/Post/Post";
+import bannerPlaceholder from "../../../../assets/images/banner-placeholder.png";
+import profilePlaceholder from "../../../../assets/images/userPlaceholder.png";
+import TierSelection from "../../../../common/components/TierSelection/TierSelection";
+import Post from "../../../../common/components/Post/Post";
 
 const CreatorPages = (props) => {
   // const [name, setName] = useState("");
