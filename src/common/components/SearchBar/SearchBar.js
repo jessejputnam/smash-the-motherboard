@@ -4,11 +4,14 @@ import searchIcon from "../../../assets/icons/search-icon.svg";
 // Import CSS
 import styles from "./SearchBar.module.css";
 
-const SearchBar = (props) => {
+const SearchBar = () => {
   const getSearchTerm = (e) => {
     e.preventDefault();
 
-    console.log(e.target);
+    const searchValue = e.target.children[0].value;
+
+    if (searchValue === "") return;
+    console.log(searchValue);
   };
 
   return (

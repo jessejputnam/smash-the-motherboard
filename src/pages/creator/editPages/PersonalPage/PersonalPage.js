@@ -6,7 +6,7 @@ import EditBtn from "../../../../common/components/buttons/EditBtn/EditBtn";
 import Footer from "../../../../common/components/Footer/Footer";
 
 // Import CSS
-import styles from "./CreatorPage.module.css";
+import styles from "./PersonalPage.module.css";
 
 // Import images
 import bannerPlaceholder from "../../../../assets/images/banner-placeholder.png";
@@ -14,7 +14,7 @@ import profilePlaceholder from "../../../../assets/images/userPlaceholder.png";
 import TierSelection from "../../../../common/components/TierSelection/TierSelection";
 import Post from "../../../../common/components/Post/Post";
 
-const CreatorPages = (props) => {
+const PersonalPage = (props) => {
   // const [name, setName] = useState("");
   const [title, setTitle] = useState("");
   const [genre, setGenre] = useState("");
@@ -89,4 +89,4 @@ const CreatorPages = (props) => {
   );
 };
 
-export default CreatorPages;
+export default PersonalPage;

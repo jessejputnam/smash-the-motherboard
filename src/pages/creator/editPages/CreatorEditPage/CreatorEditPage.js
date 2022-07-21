@@ -1,6 +1,6 @@
 // Import Components
-import BecomeCreatorForm from "../../../common/components/forms/BecomeCreatorForm/BecomeCreatorForm";
-import CreatorPages from "./CreatorPage/CreatorPage";
+import BecomeCreatorForm from "../../../../common/components/forms/BecomeCreatorForm/BecomeCreatorForm";
+import PersonalPage from "../PersonalPage/PersonalPage";
 
 // Import CSS
 import styles from "./CreatorEditPage.module.css";
@@ -22,7 +22,7 @@ const CreatorEditPage = (props) => {
       {!props.userData.creator ? (
         <BecomeCreatorForm becomeCreator={becomeCreator} />
       ) : (
-        <CreatorPages userData={props.userData} />
+        <PersonalPage userData={props.userData} />
       )}
       <button onClick={test}>Test</button>
     </div>

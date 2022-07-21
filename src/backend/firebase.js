@@ -26,7 +26,8 @@ import {
   sendPasswordResetEmail,
   signOut,
   updateProfile,
-  sendEmailVerification
+  sendEmailVerification,
+  connectAuthEmulator
 } from "firebase/auth";
 
 import {
@@ -36,10 +37,11 @@ import {
   collection,
   where,
   addDoc,
-  updateDoc
+  updateDoc,
+  connectFirestoreEmulator
 } from "firebase/firestore";
 
-import { getStorage, ref } from "firebase/storage";
+import { getStorage, ref, connectStorageEmulator } from "firebase/storage";
 
 // ###############################################
 //  # UTILITIES
@@ -55,6 +57,12 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
+// Connect Local Emulators for Prototyping
+if (window.location.hostname.includes("localhost")) {
+  connectAuthEmulator(auth, "http://localhost:9099");
+  connectFirestoreEmulator(db, "localhost", 8080);
+  connectStorageEmulator(storage, "localhost", 9199);
+}
 // ###############################################
 //  # AUTHENTICATION
 // ###############################################

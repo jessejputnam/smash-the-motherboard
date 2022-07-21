@@ -13,7 +13,7 @@ import {
 } from "../../backend/firebase";
 
 // Import Components
-import CreatorEditPage from "../../pages/creator/CreatorEditPage/CreatorEditPage";
+import CreatorEditPage from "../../pages/creator/editPages/CreatorEditPage/CreatorEditPage";
 import PatronHome from "../../pages/patron/PatronHome/PatronHome";
 import PatronSearch from "../../pages/patron/PatronSearch/PatronSearch";
 import NavPanel from "../NavPanel/NavPanel";

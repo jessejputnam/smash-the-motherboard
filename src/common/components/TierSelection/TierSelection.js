@@ -5,7 +5,6 @@ import { uuid } from "../../../backend/firebase";
 import styles from "./TierSelection.module.css";
 
 const TierSelection = (props) => {
-  // console.log(props);
   const tierRewards = props.tierRewards.map((reward) => (
     <li key={uuid()}>{reward}</li>
   ));
