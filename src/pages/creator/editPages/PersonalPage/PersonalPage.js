@@ -15,7 +15,6 @@ import TierSelection from "../../../../common/components/TierSelection/TierSelec
 import Post from "../../../../common/components/Post/Post";
 
 const PersonalPage = (props) => {
-  // const [name, setName] = useState("");
   const [title, setTitle] = useState("");
   const [genre, setGenre] = useState("");
   const [desc, setDesc] = useState("");

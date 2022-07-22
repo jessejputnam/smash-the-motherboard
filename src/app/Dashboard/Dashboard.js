@@ -9,7 +9,8 @@ import {
   db,
   getUserDbQuery,
   getUserDbInfo,
-  findAndUpdateDbField
+  findAndUpdateDbField,
+  addCreatorPage
 } from "../../backend/firebase";
 
 // Import Components
@@ -27,10 +28,6 @@ const Dashboard = () => {
   // State
   const [user, loading, error] = useAuthState(auth);
   const [userData, setUserData] = useState({});
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [userID, setUserID] = useState("");
-  // const [isCreator, setIsCreator] = useState("");
   const [currentPage, setCurrentPage] = useState("");
 
   // Functions
@@ -52,11 +49,6 @@ const Dashboard = () => {
         email: data.email,
         creator: data.creator
       });
-
-      // setName(data.name);
-      // setEmail(data.email);
-      // setUserID(data.uid);
-      // setIsCreator(data.creator);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
@@ -65,6 +57,8 @@ const Dashboard = () => {
 
   const becomeCreator = async (childData) => {
     await findAndUpdateDbField(db, user, childData.field, childData.value);
+
+    await addCreatorPage(db, user, childData);
     fetchUserData();
   };
 
@@ -85,7 +79,6 @@ const Dashboard = () => {
 
   const test = async () => {
     console.log(await getUserDbInfo(db, user));
-    // console.log(name, email, userID, isCreator);
   };
 
   return (
@@ -99,7 +92,7 @@ const Dashboard = () => {
       <div className={styles.pageContainer}>
         <Routes>
           <Route
-            path='/home'
+            path='home'
             element={
               <PatronHome userName={userData.name} userEmail={userData.email} />
             }
@@ -110,7 +103,6 @@ const Dashboard = () => {
             element={
               <CreatorEditPage
                 userData={userData}
-                // isCreator={isCreator}
                 becomeCreator={becomeCreator}
               />
             }

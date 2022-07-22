@@ -2,30 +2,47 @@
 import styles from "./BecomeCreatorForm.module.css";
 
 const BecomeCreatorForm = (props) => {
+  const ignoredWords = ["a", "an", "the", "and", "&"];
+  const inputTitle = document.querySelector("#title");
+  const inputGenre = document.querySelector("#genre");
+  const inputDesc = document.querySelector("#desc");
+  const inputTier1 = document.querySelector("#tier1");
+  const inputTier2 = document.querySelector("#tier2");
+  const inputTier3 = document.querySelector("#tier3");
+
   const becomeCreator = (e) => {
     e.preventDefault();
+
+    const keywords = [
+      inputGenre.value,
+      ...inputTitle.value
+        .toLowerCase()
+        .split(" ")
+        .filter((word) => !ignoredWords.includes(word))
+    ];
+    const tier1 = inputTier1.value
+      .split(";")
+      .map((reward) => reward.trim())
+      .filter((el) => el !== "");
+    const tier2 = inputTier2.value
+      .split(";")
+      .map((reward) => reward.trim())
+      .filter((el) => el !== "");
+    const tier3 = inputTier3.value
+      .split(";")
+      .map((reward) => reward.trim())
+      .filter((el) => el !== "");
 
     props.becomeCreator({
       field: "creator",
       value: {
-        title: document.querySelector("#title").value,
-        genre: document.querySelector("#genre").value.toUpperCase(),
-        desc: document.querySelector("#desc").value,
-        tier1: document
-          .querySelector("#tier1")
-          .value.split(";")
-          .map((reward) => reward.trim())
-          .filter((el) => el !== ""),
-        tier2: document
-          .querySelector("#tier2")
-          .value.split(";")
-          .map((reward) => reward.trim())
-          .filter((el) => el !== ""),
-        tier3: document
-          .querySelector("#tier3")
-          .value.split(";")
-          .map((reward) => reward.trim())
-          .filter((el) => el !== "")
+        title: inputTitle.value,
+        keywords: keywords,
+        genre: inputGenre.value.toLowerCase(),
+        desc: inputDesc.value,
+        tier1: tier1,
+        tier2: tier2,
+        tier3: tier3
       }
     });
   };
@@ -39,7 +56,6 @@ const BecomeCreatorForm = (props) => {
       <h3>Project Information</h3>
       <input id='title' type='text' placeholder='Project Title' required />
 
-      {/* <input id='genre' type='text' placeholder='Project Genre' required /> */}
       <select
         onChange={selectElClass}
         className={styles.placeholder}

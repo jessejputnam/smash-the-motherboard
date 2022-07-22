@@ -4,14 +4,14 @@ import searchIcon from "../../../assets/icons/search-icon.svg";
 // Import CSS
 import styles from "./SearchBar.module.css";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const getSearchTerm = (e) => {
     e.preventDefault();
 
     const searchValue = e.target.children[0].value;
-
     if (searchValue === "") return;
-    console.log(searchValue);
+
+    props.getSearchResult(searchValue.toLowerCase().split(" "));
   };
 
   return (

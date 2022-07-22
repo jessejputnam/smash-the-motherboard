@@ -33,6 +33,7 @@ import {
 import {
   getFirestore,
   query,
+  doc,
   getDocs,
   collection,
   where,
@@ -176,6 +177,11 @@ const getUserDbInfo = async (db, user) => {
 
 // Update specific fields in User Database
 const updateDbFieldValue = async (docRef, field, value) => {
+  try {
+  } catch (err) {
+    console.error(err);
+    alert("Error updating database field");
+  }
   await updateDoc(docRef, { [field]: value });
 };
 
@@ -187,8 +193,54 @@ const findAndUpdateDbField = async (db, user, field, value) => {
     updateDbFieldValue(ref, field, value);
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    alert("Error finding and updating database field");
   }
+};
+
+const addCreatorPage = async (db, user, data) => {
+  try {
+    const creatorPage = await addDoc(collection(db, "creatorPages"), {
+      desc: data.value.desc,
+      genre: data.value.genre,
+      keywords: data.value.keywords,
+      tier1: data.value.tier1,
+      tier2: data.value.tier2,
+      tier3: data.value.tier3,
+      title: data.value.title
+    });
+
+    // Add creatorPage ID to correct creator's user info
+    findAndUpdateDbField(db, user, "pageID", creatorPage.id);
+  } catch (err) {
+    console.error(err);
+    alert("Error adding creator data to public facing page");
+  }
+};
+
+//! EXPERIMENTING BEGINS HERE
+
+// Search through Creators
+const findCreatorsByKeyword = async (db, keywords) => {
+  // try {
+  //   const usersRef = doc(collection(db, "users", "creator"));
+  //   const q = query(
+  //     usersRef,
+  //     where("keywords", "array-contains-any", keywords)
+  //   );
+  //   const querySnapshot = await getDocs(q);
+  //   return querySnapshot;
+  // } catch (err) {
+  //   console.error(err);
+  //   alert("Error finding creators");
+  // }
+  // const q = query(
+  //   collection(db, "users"),
+  //   where("keywords", "array-contains-any", keywords)
+  // );
+  // const docs = await getDocs(q);
+  // return docs.docs[0].data;
+  // querySnapshot.forEach()
+  // console.log();
 };
 
 // ###############################################
@@ -210,5 +262,7 @@ export {
   getUserDbInfo,
   findAndUpdateDbField,
   getDocRefFromQuery,
-  uuid
+  uuid,
+  addCreatorPage,
+  findCreatorsByKeyword
 };
